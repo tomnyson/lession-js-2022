@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../project-training"
+		}
+	],
+	"settings": {
+		"editor.fontSize": 30,
+		"liveServer.settings.multiRootWorkspaceName": "ca1"
+	}
+}
