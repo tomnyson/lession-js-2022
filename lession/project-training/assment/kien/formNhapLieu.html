@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Nhập Liệu </title>
+    <script src="./formNhapLieu.js"></script>
+    <style>
+        input {
+          display: block;
+          height: 30;
+          margin-top: 5px;
+          margin-bottom: 10px;
+        }
+        #frmXuly {
+          border: 1px solid green;
+          width: 500px;
+          margin: 0 auto;
+        }
+        #frmXuly div {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+        }
+        button {
+          background: green;
+          color: white;
+          font-size: 16px;
+          text-transform: uppercase;
+          padding: 5;
+        }
+        #text1{
+          padding: 2px;
+        }
+      </style>
+</head>
+<body>
+    <form id="frmXuly">
+        <h2>dạng điều kiện</h2>
+        <div>
+          <label>Nhập Điểm Toán</label>
+          <input id="txtsothu1_ddk" type="number" placeholder="Nhap Diem Toan" />
+          <label>Nhập Điểm Anh</label>
+          <input id="txtsothu2_ddk" type="number" placeholder="Nhap Diem Anh" />
+          <label>Nhập Điểm Văn</label>
+          <input id="txtsothu3_ddk" type="number" placeholder="Nhap Diem Van" />
+          <button type="submit" onclick="DangDieuKien()" id="btnClick">
+            submit
+          </button>
+          <p id="result"></p>
+        </div>
+      </form>
+
+</body>
+<h2 id="text1"></h2>
+<body>
+    <form id="frmXuly">
+        <h2>Vòng lặp </h2>
+        <div>
+          <label>Câu 1 :Tìm số nguyên dương n nhỏ nhất sao cho 1 + 2 + … + n > 10000</label>
+          <button type="submit" onclick="Vonglap1a()" id="btnClick">
+            submit
+          </button>
+          <p id="result1a"></p>
+          ---------------------------------------------------------------
+          <label>Câu 2 :Tìm Ước chung lớn nhất của 2 số nguyên dương </label>
+          <div>
+            <label>Nhập Số Thứ 1</label>
+            <input id="txtsothu1_UCLN" type="number" placeholder="Nhap So Thu nhat" />
+            <label>Nhập Số Thứ 2</label>
+            <input id="txtsothu2_UCLN" type="number" placeholder="Nhap So Thu hai" />
+            
+            <button type="submit" onclick="Vonglap1b()" id="btnClick">
+              submit
+            </button>
+            <p id="result1b"></p>
+            -------------------------------------------------------------
+            <label>Câu 3 :Viết chương trình nhập 3 cạnh của 1 tam giác, cho biết đó là tam giác gì </label>
+          <div>
+            <label>Nhập Cạnh A</label>
+            <input id="txtsothu1_TG" type="number" placeholder="Nhap Canh A" />
+            <label>Nhập Cạnh B</label>
+            <input id="txtsothu2_TG" type="number" placeholder="Nhap Canh B" />
+            <label>Nhập Cạnh C</label>
+            <input id="txtsothu3_TG" type="number" placeholder="Nhap Canh C" />
+            <button type="submit" onclick="Vonglap1c()" id="btnClick">
+              submit
+            </button>
+            <p id="result1c"></p>
+            -------------------------------------------------------------
+            <label>Câu 4 :Nhập số từ 0 -> 10 và in ra cách đọc </label>
+          <div>
+            <label>Nhập 1 số ( 0 -> 10 )</label>
+            <input id="txtsothu1_number" type="number" placeholder="Nhap 1 so" />
+            <button type="submit" onclick="Vonglap1d()" id="btnClick">
+              submit
+            </button>
+            <p id="result1d"></p>
+          </div>
+        </div>
+      </form>
+      <a   href="index.html">trở về Trang Chủ</a> 
+      <a   href="Object.html">Tiếp đến bài 4</a> 
+</body>
+
+</html>
+
+

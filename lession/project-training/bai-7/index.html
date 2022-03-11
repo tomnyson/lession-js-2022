@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>Quản lý sách</title>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./sach.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form id="frmSach">
+        <div class="flex">
+          <div class="col">
+            <label>mã sách</label>
+            <input type="text" name="maSach" placeholder="nhập mã sách" />
+            <p class="error-maSach"></p>
+            <label>tên sách</label>
+            <input type="text" name="tenSach" placeholder="nhập tên sách" />
+            <p class="error-tenSach"></p>
+            <label>hình ảnh</label>
+            <input
+              type="file"
+              name="hinhAnh"
+              class="custom-file-input"
+              onchange="showPreview(event)"
+              placeholder="nhập ảnh sách"
+            />
+            <div class="preview">
+              <img id="image" />
+            </div>
+            <p class="error-hinhAnh"></p>
+            <label>tác giả</label>
+            <input type="text" name="tacGia" placeholder="nhập tác giả" />
+            <p class="error-tacGia"></p>
+            <label>mô tả</label>
+            <textarea name="moTa" placeholder="nhập mô tả sách"></textarea>
+            <label>năm sản xuât</label>
+            <p class="error-moTa"></p>
+            <input
+              type="number"
+              name="namSanXuat"
+              placeholder="nhập năm sản xuất"
+            />
+            <p class="error-namSanXuat"></p>
+            <label>số trang</label>
+            <input
+              type="number"
+              name="soTrang"
+              placeholder="nhập số trang sách"
+            />
+            <p class="error-soTrang"></p>
+            <input class="btn" onClick="addSach()" type="button" value="thêm" />
+          </div>
+          <div class="col list-view">
+            <h3>danh sách sách</h3>
+            <div class="items">
+              <div class="item">
+                <img
+                  src="https://www.artclick.vn/files/photobook-tap-chi-artclick-FqEGx7BdeY.jpg"
+                />
+                <div class="info">
+                  <p>mã sách</p>
+                  <p>tên sách</p>
+                  <p>năm sản xuất sách</p>
+                  <p>mô tả</p>
+                </div>
+              </div>
+              <!-- <div class="item">
+                <img
+                  src="https://www.artclick.vn/files/photobook-tap-chi-artclick-FqEGx7BdeY.jpg"
+                />
+                <div class="info">
+                  <p>mã sách</p>
+                  <p>tên sách</p>
+                  <p>năm sản xuất sách</p>
+                  <p>mô tả</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script> -->
+  </body>
+</html>

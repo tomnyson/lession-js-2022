@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        .container {
+	width: 640px;
+	margin: 0px auto;
+}
+
+.panel {
+	display: block;
+	width: 100%;
+	border: solid #34b1eb 2px;
+	margin-bottom: 20px;
+}
+
+.panel .heading {
+	background-color: #34b1eb;
+	color: white;
+	padding: 12px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.panel .body {
+	padding: 15px;
+}
+
+.form-control {
+	width: 100%;
+}
+
+.panel .body label, .panel .body input, .panel .body select {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	padding: 6px;
+}
+
+.btn-success {
+	font-size: 16px;
+	background-color: green;
+	color: white;
+	border: none;
+	padding: 10px;
+}
+
+.btn-reset {
+	font-size: 16px;
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 10px;
+}
+
+.table {
+	width: 100%;
+}
+
+.table th, .table td {
+	border: solid grey 1px;
+	padding: 6px;
+}
+    </style>
+</head>
+<body onload="init()">
+    <div class="container">
+		<div class="panel">
+			<div class="heading">
+				Thông Tin Sinh Viên
+			</div>
+			<div class="body">
+				<form method="post" onsubmit="return addProduct();">
+					<div class="form-control">
+						<label>Họ Và Tên : </label>
+						<input required type="text" name="product_name" id="name_id">
+					</div>
+
+                    <div class="form-control">
+						<label>Ngày-Tháng-Năm Sinh : </label>
+						<input required type="date" name="product_date" id="date_id">
+					</div>
+
+					<div class="form-control">
+						<label>Điểm Toán: </label>
+						<input required type="number" name="price" id="toan_id" onchange="updatePrice()">
+					</div>
+
+					<div class="form-control">
+						<label>Điểm Anh: </label>
+						<input required type="number" name="quantity" id="anh_id" onchange="updatePrice()">
+					</div>
+
+                    <div class="form-control">
+						<label>Điểm Văn: </label>
+						<input required type="number" name="quantity1" id="van_id" onchange="updatePrice()">
+					</div>
+
+					<div class="form-control">
+						<label>Điểm Trung Bình: </label>
+						<input type="number" name="total_price" id="diemtrungbinh_id" disabled="true">
+					</div>
+
+					<div class="form-control">
+						<button type="submit" class="btn-success">Add Product</button>
+						<button type="reset" class="btn-reset">Reset</button>
+						
+					</div>
+				</form>
+			</div>
+			<div><button onclick="sap_xep_id()">Trở về trang trước</button></div>
+			<div><button onclick="ran()">Game</button></div>
+		</div>
+
+		<div class="panel">
+			<div class="heading">
+				Product List Management
+			</div>
+			<div class="body">
+				<table class="table" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Name</th>
+                            <th>Date</th>
+							<th>Toán</th>
+							<th>Anh</th>
+                            <th>Văn</th>
+                            <th>Điểm Trung Bình</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="result"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+    <script type="text/javascript">
+        var productList = []
+        var NameTag,DateTag,ToanTag,AnhTag,VanTag,DiemTrungBinhTag
+        var resultTag
+
+        //Gắn Id
+        function init() {
+            NameTag = document.getElementById('name_id')
+            DateTag = document.getElementById('date_id')
+            ToanTag = document.getElementById('toan_id')
+            AnhTag = document.getElementById('anh_id')
+            VanTag = document.getElementById('van_id')
+            DiemTrungBinhTag = document.getElementById('diemtrungbinh_id')
+            resultTag = document.getElementById('result')
+
+			console.log("Testing...")
+        }
+        
+
+
+        function updatePrice() {
+            DiemToan = ToanTag.value;
+            DiemAnh = AnhTag.value;
+            DiemVan = VanTag.value;
+
+            DiemTrungBinhTag.value =Number(+DiemToan + +DiemAnh + +DiemVan) / 3
+        }
+        
+
+        //List
+        function addProduct() {
+            item = {
+                'name': NameTag.value,
+                'date': DateTag.value,
+                'toan': ToanTag.value,
+                'anh': AnhTag.value,
+                'van': VanTag.value,
+                'diemtrungbinh': DiemTrungBinhTag.value
+            }
+            if(currentIndex >= 0) {
+			    productList[currentIndex] = item
+			    currentIndex = -1
+		    } else {
+			    productList.push(item)
+		    }
+
+            displayProducts()
+
+            return false;
+        }
+
+
+        //Thêm
+        function displayProducts() {
+            resultTag.innerHTML=''
+            index = 0
+            for(var item of productList){
+                resultTag.innerHTML +=  `<tr>
+					<th>${index + 1}</th>
+					<th>${item.name}</th>
+					<th>${item.date}</th>
+					<th>${item.toan}</th>
+					<th>${item.anh}</th>
+					<th>${item.van}</th>
+					<th>${item.diemtrungbinh}</th>
+					<th><button onclick="updateItem(${index})">Edit</button></th>
+					<th><button onclick="deleteItem(${index})">Delete</button></th>
+				</tr>`
+                index++
+            }
+        }
+
+		var currentIndex = -1
+		//sửa
+		function  updateItem(index) {
+			currentIndex = index
+			item = productList[index]
+
+			NameTag.value = item.name
+			DateTag.value = item.date
+			ToanTag.value = item.toan
+			AnhTag.value = item.anh
+			VanTag.value = item.van
+			DiemTrungBinhTag.value =Number(+item.toan + +item.anh + +item.van) / 3			
+		}
+
+
+	    //Xóa
+		function deleteItem(index) {
+			productList.splice(index, 1)
+
+			displayProducts()
+		}
+
+		// Sắp Xếp
+		function sap_xep_id() {
+			// productList.sort(compareNumbers)
+			// displayProducts()
+			location.href = './formNhapLieu.html'
+		}
+
+		function ran() {
+			// productList.sort(compareNumbers)
+			// displayProducts()
+			location.href = './snake.html'
+		}
+    </script>
+</body>
+</html>

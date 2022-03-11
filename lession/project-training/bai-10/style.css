@@ -1,0 +1,86 @@
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  border: 5px solid #ccc;
+  padding: 20px;
+}
+.slider img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  opacity: 0;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.slider button {
+  width: 150px;
+  background: #000000;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bauCua {
+  margin-top: 50;
+}
+.bauCua .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10;
+}
+
+.bauCua .item {
+  width: 200;
+  border: 2px solid #333;
+  text-align: center;
+  margin-left: 10;
+  padding: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.bauCua .active {
+  border: 2px solid red;
+  border-radius: 10px;
+}
+.item:hover {
+  background: green;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+}

@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(255, 173, 173);
+}
+.containerLogin{
+    background-color: cornsilk;
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 2px solid rgb(75, 23, 23);
+}
+.containerLogin input{
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.containerLogin input:focus{
+    outline: none;
+}
+.containerLogin h1{
+    text-align: center;
+    color: darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.containerLogin .text_logIn{
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.containerLogin #btn_Login{
+    width: 50%;
+    height: 46px;
+    display: block;
+    margin: 35px auto;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(206, 206, 255);
+}
+.containerLogin #btn_Login:hover{
+    background-color: rgb(166, 166, 243);
+}
+#errorAgainPass, #errorPass, #errorUsername{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.haveAccount{
+    float: right;
+}

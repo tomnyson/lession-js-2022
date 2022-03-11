@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>
+          Đăng ký tài khoản
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+      <style>
+        #dky{
+          display: flex;
+        }
+      </style>
+      <div class="container">
+        <h2>Đăng Ký</h2>
+        <form action="#">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+              </div>
+            <div class="form-group" id="loiname" style="color: red; font-size: 12px;"></div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group" id="loimail" style="color: red; font-size: 12px;"></div>
+
+          <div class="form-group">
+            <label for="pwd">Mật khẩu:</label>
+            <input type="password" class="form-control" id="psw" placeholder="Enter password" name="pwd">
+          </div>
+          <div class="form-group" id="loipsw" style="color: red; font-size: 12px;"></div>
+
+          <div class="form-group">
+            <label for="pwd">Nhập lại mật khẩu:</label>
+            <input type="password" class="form-control" id="repsw" placeholder="Enter password" name="repwd">
+          </div>
+          <div class="form-group" id="loirepsw" style="color: red; font-size: 12px;"></div>
+
+            <button type="button" onclick="saveData()" id="save_btn" class="btn btn-default">Đăng Ký</button>
+          <div  class="form-group" id="dky">
+            <p>Bạn đã có tài khoản?</p><a href="dangnhap.html">Đăng nhập</a><p> tại đây</p>
+          </div>
+      </form>
+      </div>
+    </body>
+    <script>
+    function saveData(){  
+      let name,email,psw;
+      name=document.getElementById("name").value;
+      email=document.getElementById("email").value;
+      psw=document.getElementById("psw").value;
+      repsw = document.getElementById("repsw").value;
+
+      let user_records=new Array();
+      user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[] 
+        if(name == "" || email == "" || psw == "" ||repsw == ""){
+          loiName()
+          loiMail()
+          loiPsw()
+          loirePsw()
+        }else{
+            if(user_records.some((v)=>{return v.email==email}))
+          {
+            alert("Tài khoản đã tồn tại! Vui lòng đăng ký tài khoản khác");
+          }else{
+            alert('Đăng ký tài khoản thành công!')
+            user_records.push({
+            "name":name,
+            "email":email,
+            "psw":psw
+          })
+          localStorage.setItem("users",JSON.stringify(user_records));
+          window.location.href="dangnhap.html"
+          } 
+          clear();
+          }
+    }
+    function clear(){
+      document.getElementById("name").value="";
+      document.getElementById('email').value="";
+      document.getElementById('psw').value="";
+      document.getElementById('repsw').value="";
+      loiname.innerHTML ="";
+      loimail.innerHTML ="";
+      loipsw.innerHTML ="";
+      loirepsw.innerHTML ="";
+    }
+    function loiName(){
+      var name = document.getElementById('name')
+      if(name.value.length == 0){
+        name.style.border = "1px solid red"
+        loiname.innerHTML = 'Vui lòng nhập tên!';
+      }
+    }
+    function loiMail(){
+      var email = document.getElementById('email')
+      if(email.value.length == 0){
+        email.style.border = "1px solid red"
+        loimail.innerHTML = 'Vui lòng nhập email!';
+      }
+    }
+    function loiPsw(){
+      var psw = document.getElementById('psw')
+      if(psw.value.length == 0){
+        psw.style.border = "1px solid red"
+        loipsw.innerHTML = 'Vui lòng nhập mật khẩu!';
+      }
+    }
+    function loirePsw(){
+      var repsw = document.getElementById('repsw')
+      if(repsw != psw){
+        repsw.style.border = "1px solid red"
+        loirepsw.innerHTML = 'Vui lòng nhập lại mật khẩu!';
+      }
+    }
+    </script>
+</html>

@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>bai 4</title>
+    <style>
+      input {
+        display: block;
+        height: 30;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+      #frmXuly {
+        border: 1px solid green;
+        width: 500px;
+        margin: 0 auto;
+      }
+      #frmXuly div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      button {
+        background: green;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 5;
+      }
+      #result {
+        color: green;
+      }
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="frmXuly">
+      <h3>Giải phương trình bâc 2 ax2 + bx + c =0</h3>
+      <div>
+        <label>nhâp vào số thứ 1</label>
+        <input id="txtsothu1" type="number" placeholder="nhap so thu 1" />
+        <label>nhâp vào số thứ 2</label>
+        <input id="txtsothu2" type="number" placeholder="nhap so thu 2" />
+        <label>nhâp vào số thứ 3</label>
+        <input id="txtsothu3" type="number" placeholder="nhap so thu 3" />
+        <button type="submit" onclick="xyLyKetQua()" id="btnClick">
+          submit
+        </button>
+        <p id="result"></p>
+        <p id="error"></p>
+      </div>
+    </form>
+    <script>
+      function xyLyKetQua() {
+        event.preventDefault();
+        const a = document.getElementById("txtsothu1").value;
+        const b = document.getElementById("txtsothu2").value;
+        const c = document.getElementById("txtsothu3").value;
+        if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+          if (Number(a) === 0) {
+            document.getElementById("result").innerHTML =
+              "phương trình về dạnh bậc 1";
+          } else {
+            const delta = Number(b) * Number(b) - 4 * Number(a) * Number(c);
+            if (delta < 0) {
+              document.getElementById("result").innerHTML =
+                "phương trình vô nghiệm";
+            } else if (delta == 0) {
+              document.getElementById("result").innerHTML =
+                "phương trình có nghiệm kép" + (-Number(b) / 2) * Number(a);
+            } else {
+              const x1 = ((-Number(b) + Math.sqrt(delta)) / 2) * a;
+              const x2 = ((-b - Math.sqrt(delta)) / 2) * a;
+              document.getElementById(
+                "result"
+              ).innerHTML = `phương trình có 2 nghiêm x1: = ${x1} x2 = ${x2} `;
+            }
+          }
+        } else {
+          document.getElementById("error").innerHTML = "invalid number";
+        }
+      }
+    </script>
+  </body>
+</html>

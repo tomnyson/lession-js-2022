@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 6 - CLIENT</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="control">
+        <button onclick="callAPI()">Gọi API</button>
+        <button onclick="admin()">Chuyển đến trang Admin</button>
+    </div>
+    <div class="item">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>IMAGE</th>
+                    <th>DATE_TIME</th>
+                    <th>THÔNG TIN</th>
+
+
+                </tr>
+            </thead>
+            <tbody id="show"></tbody>
+        </table>
+    </div>
+</body>
+<script src="client.js"></script>
+
+</html>

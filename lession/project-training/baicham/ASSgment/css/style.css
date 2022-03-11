@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+:root{
+    --primary-color:#fed100;
+    --primary-dark-color:#febc00;
+    --primary-light-color:#eac100;
+    --dark-color:#222;
+    --light-color:#fff;
+}
+img{
+    width: 100%;
+}
+.btn{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.btn-primary{
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+.btn-primary:hover{
+    background-color: var(--primary-dark-color);
+}
+/*---------------------------------------------------------------------*/
+#nav-bar{
+    background-color:var(--primary-color);
+}
+.menu-level-1{
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.item-level-1{
+    padding: 16px 20px;
+
+}
+.item-level-1 a,i{
+    color: var(--light-color);
+    font-size: 16px;
+    line-height: 20px;
+}
+.item-level-1:hover{
+    background-color: var(--primary-dark-color);
+}
+.item-level-1:hover .menu-level-2{
+    display: block;
+}
+.item-level-1:last-child{
+    margin-left: auto;
+}
+.menu-level-2{
+    border: 1px solid #ddd;
+    box-shadow: 1px 2px 4px #ddd;
+    background-color: var(--light-color);
+    position: absolute;
+    top: 52px;
+    display: none;
+}
+.menu-level-2 a{
+    color: var(--dark-color);
+}
+.menu-level-2 .item-level-2{
+    padding: 10px 20px;
+}
+.menu-level-2 .item-level-2:hover{
+    text-decoration: underline;
+}
+/*--------------------DSSP-----------------------------------*/
+#products{
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 40px;
+}
+#products .items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+#products .items .item{
+    border: 1px solid #ddd;
+    box-shadow: 1px 2px 2px #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+#products .items .item .item-title{
+    font-size: 15px;
+    line-height: 30px;
+    margin: 10px 0;
+}
+
+#products .items .item .item-price{
+    margin-bottom: 20px;
+}
+#products .items .item .item-price .item-price-origin{
+    font-size: 12px;
+    text-decoration: line-through;
+}
+#products .items .item .item-price .item-price-sale{
+    font-size: 16px;
+    color: red;
+    margin-left: 3px;
+}
+#products .items .item .btn{
+    margin-left: auto;
+    display: block;
+    font-size: 14px;
+}
+/*--------------------footer----------*/
+footer{
+    padding: 10px 20px;
+    background-color: var(--primary-dark-color);
+    color: var(--light-color);
+    text-align: center;
+    margin-top: 50px;
+}

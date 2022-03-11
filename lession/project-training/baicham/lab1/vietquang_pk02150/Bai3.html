@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button onclick="khoilapphuong()">giải khối lập phương</button>
+<button onclick="ptb_1()">giải phương trình bậc 1</button>
+<button onclick="giatrilonnhat()">giá trị lớn nhất</button>
+<button onclick="nhap_sanpham()">thông tin sản phẩm</button>
+<h3 id="sanpham"></h3>
+
+<body>
+    <script>
+        function khoilapphuong() {
+            var a = prompt("nhập canh khối lập phương");
+            var S = Math.pow(3, Number(a));
+            alert("thể tích khối lập phương : " + S);
+
+        }
+
+        function ptb_1() {
+            var a = prompt("Nhập hệ số a");
+            var b = prompt("Nhập hệ số b");
+            var x = -Number(b) / Number(a);
+            alert(x);
+        }
+
+        function giatrilonnhat() {
+            let a = prompt("Nhập số a");
+            let b = prompt("Nhập số b");
+            let c = prompt("Nhập số c");
+            let max = Number(a);
+            if (max < Number(b)) {
+                max = Number(b);
+            }
+            if (max < Number(c)) {
+                max = Number(c);
+            }
+            alert("số lơn nhất là : " + max)
+        }
+
+        function nhap_sanpham() {
+            var tensp = prompt("Nhập tên sản phẩm : ");
+            let soluong = prompt("Nhập số so luong");
+            let gia = prompt("Nhập giá sản phẩm : ");
+            let tien = Number(soluong) * Number(gia);
+            let thue = tien * 10 / 100;
+            let tongtien = tien + thue;
+            document.getElementById("sanpham").innerText = "thông tin san phẩm :" + "\n tên sản phẩm : " + tensp + "\n số lượng sản phẩm : " +
+                soluong + "\n giá sản phẩm : " + gia + "\n tien mua hàng : " + tien + "\nthuế : " + thue + "\n tổng tiền phải trả : " + tongtien;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quan ly san pham - page</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script src="js.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="panel">
+			<div class="panel-heading">
+				Quan Ly Sach
+			</div>
+			<div class="panel-body">
+				<form method="post" id="frmSach" onsubmit="addSach" >
+					<label>Ma Sach </label>
+					<input type="text" id="maSach" placeholder="Ma Sach">
+
+          <label>tên sách</label>
+          <input type="text" id="tenSach" placeholder="tên sách" />
+
+          <label>năm sản xuất</label>
+          <input type="text" id="namSX" placeholder="năm sx sách" />
+
+          <label>số trang</label>
+          <input type="text" id="soTrang" placeholder="số trang sách" />
+
+          <label>tác giả</label>
+          <input type="text" id="tacGia" placeholder="tác giả sách" />
+
+					<div class="form-group">
+		<button type="submit" onclick="addSach()" value="Them Sach">Them Sach</button>		
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel" id="lstSach">
+			<div class="panel-heading">
+				Quan Ly Sach 
+			</div>
+			<div class="panel-body">
+				<table border="1" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Ma Sach</th>
+							<th>Ten Sach</th>
+							<th>Nam san Xuat</th>
+							<th>SoTrang</th>
+							<th>Ten tac gia</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="items">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

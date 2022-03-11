@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>bai 5</title>
+    <style>
+      input {
+        display: block;
+        height: 30;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+      #frmXuly {
+        border: 1px solid green;
+        width: 500px;
+        margin: 0 auto;
+      }
+      #frmXuly div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      button {
+        background: green;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 5;
+      }
+      #result {
+        color: green;
+      }
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="frmXuly">
+      <h3>tính thể tích lập phương</h3>
+      <div>
+        <label>nhâp vào số cạnh</label>
+        <input id="txtsothu1" type="number" placeholder="nhap so thu nhat" />
+        <button type="submit" onclick="xyLyKetQua()" id="btnClick">
+          submit
+        </button>
+        <p id="result"></p>
+        <p id="error"></p>
+      </div>
+    </form>
+    <script>
+      function xyLyKetQua() {
+        event.preventDefault();
+        const ketqua = prompt("nhap ket qua");
+        switch (ketqua) {
+          case 1:
+            let a = 1;
+            console.log("a", 2);
+            break;
+          case 1:
+            let a = 2;
+            console.log("a", 2);
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

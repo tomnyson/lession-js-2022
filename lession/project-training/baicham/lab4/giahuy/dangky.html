@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/register.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="align">
+
+    <div class="login">
+  
+      <header class="login__header">
+        <h2><svg class="icon">
+            <use xlink:href="#icon-lock" />
+          </svg>Đăng Ký</h2>
+      </header>
+  
+      <form class="login__form" id="signup-form">
+  
+        <div>
+          <label for="email">Địa chỉ E-mail:</label>
+          <input type="email" id="email" name="email" placeholder="mail@abc.xyz">
+        </div>
+
+        <div>
+            <label for="ten">Tên của bạn:</label>
+            <input type="ten" id="ten" name="ten" placeholder="Tên của bạn">
+        </div>
+
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="password">
+        </div>
+        
+        <div>
+          <input class="button" type="submit" value="Đăng Ký" onclick="register()">
+        </div>
+        <div>
+          Đã có tài khoản. 
+          <a href="login.html" class="forgot-pass">Đăng Nhập</a>
+          
+        </div>
+        
+      </form>
+  
+    </div>
+  
+    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+  
+      <symbol id="icon-lock" viewBox="0 0 448 512">
+        <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" />
+      </symbol>
+  
+    </svg>
+  
+  </body>
+</html>

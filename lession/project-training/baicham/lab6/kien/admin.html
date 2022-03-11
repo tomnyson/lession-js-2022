@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="control">
+        <button onclick="callAPI()">CALL API</button>
+        <button onclick="home()">GO TO HOME PAGE</button>
+        <div class="group">
+            <input type="text" id="name" placeholder="Input name here...">
+            <input type="text" id="picture" placeholder="Input picture here...">
+            <input type="text" id="description" placeholder="Input description here...">
+            <button class="update" onclick="PostAPI()">POST API</button>
+        </div>
+    </div>
+    <div id="update-form">
+        <h3>Cập nhật thông tin</h3>
+        <input type="text" id="nameUP" placeholder="name">
+        <input type="text" id="pictureUP" placeholder="picture">
+        <input type="text" id="descriptionUP" placeholder="description">
+        <button onclick="PutAPI(idToPut)">CẬP NHẬT</button>
+    </div>
+    <div class="item">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>PICTURE</th>
+                    <th>CREATEDAT</th>
+                    <th>DESCRIPTION</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody id="show"></tbody>
+        </table>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

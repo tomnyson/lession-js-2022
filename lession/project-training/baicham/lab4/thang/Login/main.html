@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../Login/style.css" />
+  </head>
+  <body>
+    <div class="containerLogin">
+      <h1>Đăng Nhập</h1>
+      <p class="text_logIn">Tên Tài Khoản</p>
+      <p id="errorUsername"></p>
+      <input
+        id="userName"
+        placeholder="Enter your username"
+        type="text"
+        class="ip_logIn"
+      />
+
+      <p class="text_logIn">Mật khẩu</p>
+      <p id="errorPass"></p>
+      <input
+        id="passWord"
+        placeholder="Enter your password"
+        type="password"
+        class="ip_logIn"
+      />
+
+      <button id="btn_Login">Đăng Nhập</button>
+      <p class="haveAccount">
+        <a href="/formLog/Sigin/main.html">Chưa có tài khoản?</a>
+      </p>
+      <p id="sucess"></p>
+    </div>
+  </body>
+  <script src="./scrip.js"></script>
+</html>

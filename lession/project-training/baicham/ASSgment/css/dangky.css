@@ -1,0 +1,27 @@
+input {
+    display: block;
+    height: 30;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#nhap{
+   margin-left: 545px;
+}
+.form{
+    border: 1px burlywood;
+}
+#dangky{
+    margin-left: 600px;
+}
+#tk{
+    display: flex;
+    margin-left: 40%;
+}
+#tk a{
+    margin-top: 15px;
+    color: black;
+}
+.error{
+    font-size: 12px;
+    color: red;
+}

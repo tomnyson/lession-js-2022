@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="https://kit.fontawesome.com/178855beeb.js" crossorigin="anonymous"></script>
+    <script src="./js/sanPham.js"></script>
+    <script src="./js/taoid.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        #addSP{
+            margin-top: 15px;
+        }
+        .them-moi-san-pham{
+            width: 40%;
+            border: 1px solid #444;
+            margin: auto;
+        }
+        .them-moi-san-pham label, input{
+            width: 100%;
+            display: block;
+        }
+        .them-moi-san-pham label{
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        .them-moi-san-pham input{
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .them-moi-san-pham button{
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: blue;
+            color: #fff;
+        }
+        .them-moi-san-pham button:hover{
+            background-color: chocolate;
+        }
+        .them-moi-san-pham .error{
+            font-size: 12px;
+            color: red;
+            font-style: italic;
+            height: 12px;
+            margin-top: 5px;
+        }
+      
+    </style>
+</head>
+<body>
+    <nav id="nav-bar">
+        <ul class="menu-level-1">
+            <li class="item-level-1">
+                <a href="#" class="item-level-1-title">Quần áo</a>
+                <ul class="menu-level-2">
+                    <li class="item-level-2">
+                        <a href="#" class="item-level-2-title">Quần áo nam</a>
+                    </li>
+                    <li class="item-level-2">
+                        <a href="#" class="item-level-2-tile">Quần áo nữ</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="item-level-1">
+                <a href="#" class="item-level-1-tile">Phụ kiện</a>
+            </li>
+            <li class="item-level-1">
+                <a href="#" class="item-level-1-title">Đồ điện tử</a>
+                <ul class="menu-level-2">
+                    <li class="item-level-2">
+                        <a href="#" class="item-level-2-title">Điện thoại</a>
+                    </li>
+                    <li class="item-level-2">
+                        <a href="#" class="item-level-2-tile">Đồ gia dụng</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="item-level-1">
+                <a href="dangnhap.html">Tài Khoản</a>
+            </li>
+            <li class="item-level-1">
+                <a href="giohang.html"><i class="fas fa-cart-arrow-down"></i></a>
+            </li>
+        
+        </ul>
+    </nav>
+    <section id="addSP">
+        <div class="them-moi-san-pham">
+            <label for="hinhAnh"> Hình Ảnh Sản Phẩm:</label>
+            <input type="text" id="hinhAnh">
+            <label for="hinhanh" class="error" id="loihinhAnh"></label>
+
+            <label for="ten"> Tên Sản Phẩm:</label>
+            <input type="text" id="ten">
+            <label for="ten" class="error" id="loiten"></label>
+
+            <label for="giaGoc"> Giá Gốc:</label>
+            <input type="number" id="giaGoc">
+            <label for="giaGoc" class="error" id="loigiaGoc"></label>
+
+            <label for="phanTramGiamGia"> Giảm giá (%) - Giá trị từ 0 - 1:</label>
+            <input type="number" id="phanTramGiamGia">
+            <label for="phanTramGiamGia" class="error" id="loiphanTramGiamGia"></label>
+
+            <button onclick="onClickTaoSanPham()">Tạo sản phẩm</button>
+        </div>
+    </section>
+    <footer>
+        Nguyên Apple
+    </footer>
+    <script>
+        var danhSachSanPham = JSON.parse(localStorage.getItem('danhSachSanPham'));
+        if(danhSachSanPham ==null){
+            danhSachSanPham = new Array();
+        }
+        console.log(danhSachSanPham);
+        function onClickTaoSanPham(){
+            if(kiemTraHopLeSanPham() == true){
+                alert('Thêm sản phẩm thành công!')
+                var nodeHinhAnh = document.getElementById('hinhAnh');
+                var hinhAnh = nodeHinhAnh.value;
+                nodeHinhAnh.value ='';
+
+                var nodeTen = document.getElementById('ten');
+                var ten = nodeTen.value;
+                nodeTen.value ='';
+
+                var nodeGiaGoc = document.getElementById('giaGoc');
+                var giaGoc =  parseInt(nodeGiaGoc.value);
+                nodeGiaGoc.value='';
+
+                var nodephanTramGiamGia = document.getElementById('phanTramGiamGia');
+                var phanTramGiamGia = parseFloat(nodephanTramGiamGia.value);
+                nodephanTramGiamGia.value='';
+
+                var sanPham = TaoDoiTuongSanPham( hinhAnh, ten, giaGoc, phanTramGiamGia);
+                console.log('Tên sản phẩm là: '+ sanPham.ten+ ' Giá bán: ' + sanPham.tinhGiaBan());
+
+                danhSachSanPham.push(sanPham);
+                console.log(danhSachSanPham);
+                
+
+                var jsondanhSachSanPham = JSON.stringify(danhSachSanPham);
+                localStorage.setItem('danhSachSanPham',jsondanhSachSanPham);
+            }
+           
+        }
+        function kiemTraHopLeSanPham(){
+            var hople = true;
+            var nodeInputHinhAnh = document.getElementById('hinhAnh');
+            var nodeInputTen = document.getElementById('ten');
+            var nodeInputGiaGoc = document.getElementById('giaGoc');
+            var nodeInputPhanTramGiamGia = document.getElementById('phanTramGiamGia');
+
+            var hinhAnh = nodeInputHinhAnh.value;
+            var ten = nodeInputTen.value;
+            var giaGoc = nodeInputGiaGoc.value;
+            var phanTramGiamGia = nodeInputPhanTramGiamGia.value;
+
+            var nodeloihinhAnh = document.getElementById('loihinhAnh');
+            var nodeloiten = document.getElementById('loiten');
+            var nodeloigiaGoc = document.getElementById('loigiaGoc');
+            var nodeloiphanTramGiamGia = document.getElementById('loiphanTramGiamGia');
+
+            nodeloihinhAnh.innerHTML ='';
+            nodeloiten.innerHTML = '';
+            nodeloigiaGoc.innerHTML = '';
+            nodeloiphanTramGiamGia.innerHTML = '';
+
+            if(hinhAnh == null || hinhAnh.length == 0){
+                hople = false;
+                nodeloihinhAnh.innerHTML = 'Hình ảnh không được để trống!'
+            }
+            if(ten == null || ten.length == 0){
+                hople = false;
+                nodeloiten.innerHTML = 'Tên không được để trống!'
+            }
+            if(giaGoc == null || giaGoc.length == 0){
+                hople = false;
+                nodeloigiaGoc.innerHTML = 'Giá gốc không được để trống!'
+            }
+            if( phanTramGiamGia == null || phanTramGiamGia.length == 0){
+                hople = false;
+                nodeloiphanTramGiamGia.innerHTML = 'Phần trăm giảm giá không được để trống!'
+            }
+            return hople;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bậc 2</title>
+</head>
+<body>
+    Bậc 2
+    <script>
+    var a = prompt("Nhập a: ")
+    var b = prompt("Nhập b: ")
+    var c = prompt("Nhập c: ")
+
+
+	 if(a == 0) {
+         
+        if(b == 0) {
+            if (c == 0) {
+            	alert("PT có vô số nghiệm")
+                 
+            } else {
+                alert("Pt vô nghiệm")
+            }
+        } else {
+            alert("Pt có 1 nghiệm: " + (-c/b))
+        }
+    } else {
+        var delta = b*b - 4*a*c;
+        if(delta > 0) {
+            var x1 = (-b+Math.sqrt(delta))/(2*a);
+            var x2 = (-b-Math.sqrt(delta))/(2*a);
+            alert("Nghiệm thứ nhất là: "+ x1 + " \nNghiệm thứ 2 là: " + x2)
+        } else if ( delta == 0) {
+        	var sum = -b/2*a
+            alert("Pt có 2 nghiệm bằng nhau là: "+sum)
+        } else {
+            alert("Pt vô nghiệm")
+        }
+    }
+    </script>
+</body>
+</html>

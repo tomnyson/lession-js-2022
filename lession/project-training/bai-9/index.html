@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>bài dom</title>
+    <style>
+      img {
+        width: 400px;
+      }
+      #troChoi {
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+      input {
+        height: 25px;
+      }
+      button {
+        background: green;
+        color: #ffff;
+        height: 30px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="troChoi">
+        <form>
+          <input
+            type="number"
+            name="soChon"
+            placeholder="Nhập vào số may mắn"
+          />
+          <button onclick="return playGame()">Play Game</button>
+        </form>
+        <div>
+          <h2 id="ketQua">Kết quả:</h2>
+          <h2 id="luachon">Số chọn:</h2>
+          <p>Phần thưởng</p>
+          <div id="winner"></div>
+        </div>
+      </div>
+      <div id="testEvent">
+        <h1>hello event</h1>
+        <form id="testForm">
+          <input type="checkbox" name="favorite" value="Bike" />
+          <label for="vehicle1"> I have a bike</label><br />
+          <input type="checkbox" name="favorite" value="Car" />
+          <label for="vehicle2"> I have a car</label><br />
+          <input type="checkbox" name="favorite" value="Boat" />
+          <label for="vehicle3"> I have a boat</label><br />
+          <fieldset id="group1">
+            <input type="radio" name="price" value="Thousand" />Thousand<br />
+            <input type="radio" name="price" value="Lakh" />Lakh<br />
+            <input type="radio" name="price" value="Crore" />Crore
+          </fieldset>
+          <fieldset id="group1">
+            <select name="cars" id="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="opel">Opel</option>
+              <option value="audi">Audi</option>
+            </select>
+          </fieldset>
+          <button onclick="xuLyTestForm(event)">ok</button>
+        </form>
+        <button onclick="fetchAPiTest()">Fetct API</button>
+        <div id="ajax"></div>
+      </div>
+      <input
+        id="txtUser"
+        onchange="checkValidUsername(event)"
+        type="text"
+        placeholder="what are doing now"
+      />
+      <small class="error-userName"></small>
+      <button onclick="addListToDo()">Add todo</button>
+      <ul id="lstTodo"></ul>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

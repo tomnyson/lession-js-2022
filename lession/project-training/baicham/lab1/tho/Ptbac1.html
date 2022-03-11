@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giải phương trình bậc nhất</title>
+</head>
+<body>
+	<h2>Phạm Quang Huy PK01661</h2>	
+    <script type="text/javascript">
+        var a = prompt('Nhập số a:')
+        var b = prompt('Nhập số b:')
+        a=parseInt(a);
+        b=parseInt(b);
+        console.log('Ta có với a = '+ a +' và b = '+ b +'\nVậy phương trình là:'+a+'x+'+b+'=0')
+        if (a == 0) {
+                if (b == 0){ 
+                    console.log('Phương trình có vô số nghiệm')
+                }else{	
+                    console.log('Phương trình có vô nghiệm')
+                }
+            }else{
+                console.log('Phương trình có một nghiệm là x: ' + (-b/a) )
+            }
+    </script>
+</body>
+</html>

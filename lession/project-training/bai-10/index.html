@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>slider</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body onload="changeHinh()">
+    <div class="slider">
+      <button onclick="prevSlider()">previous</button>
+      <div class="item">
+        <img
+          id="hinh"
+          src="https://pdp.edu.vn/wp-content/uploads/2021/01/hinh-anh-cute-de-thuong.jpg"
+        />
+      </div>
+      <button onclick="nextSlider()">next</button>
+    </div>
+    <div class="bauCua">
+      <div class="row">
+        <div data-type="Huou" class="item">
+          <img src="./image/huou.png" />
+        </div>
+        <div data-type="Bau" class="item">
+          <img src="./image/bau.png" />
+        </div>
+        <div data-type="Ga" class="item">
+          <img src="./image/ga.png" />
+        </div>
+      </div>
+      <div class="row">
+        <div data-type="Ca" class="item">
+          <img src="./image/ca.png" />
+        </div>
+        <div data-type="Cua" class="item">
+          <img src="./image/cua.png" />
+        </div>
+        <div data-type="Tom" class="item">
+          <img src="./image/tom.png" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <h5>chọn ít nhất một con</h5>
+          <button onClick="playGame()">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

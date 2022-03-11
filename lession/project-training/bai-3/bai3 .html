@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>bai 3</title>
+    <style>
+      input {
+        display: block;
+        height: 30;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+      #frmXuly {
+        border: 1px solid green;
+        width: 500px;
+        margin: 0 auto;
+      }
+      #frmXuly div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      button {
+        background: green;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 5;
+      }
+      #result {
+        color: green;
+      }
+      #error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="frmXuly">
+      <h3>tìm số lớn nhất</h3>
+      <div>
+        <label>nhâp vào số thứ 1</label>
+        <input id="txtsothu1" type="number" placeholder="nhap so thu 1" />
+        <label>nhâp vào số thứ 2</label>
+        <input id="txtsothu2" type="number" placeholder="nhap so thu 2" />
+        <label>nhâp vào số thứ 3</label>
+        <input id="txtsothu3" type="number" placeholder="nhap so thu 3" />
+        <button type="submit" onclick="xyLyKetQua()" id="btnClick">
+          submit
+        </button>
+        <p id="result"></p>
+        <p id="error"></p>
+      </div>
+    </form>
+    <script>
+      function xyLyKetQua() {
+        event.preventDefault();
+        const sothu1 = document.getElementById("txtsothu1").value;
+        const sothu2 = document.getElementById("txtsothu2").value;
+        const sothu3 = document.getElementById("txtsothu3").value;
+        const parseSoThu1 = Number(sothu1);
+        const parseSoThu2 = Number(sothu2);
+        const parseSoThu3 = Number(sothu3);
+        if (!isNaN(sothu1) && !isNaN(sothu2) && !isNaN(sothu3)) {
+          let max = parseSoThu1;
+          if (max < parseSoThu2) {
+            max = parseSoThu2;
+          }
+          if (max < parseSoThu3) {
+            max = parseSoThu3;
+          }
+          document.getElementById("result").innerHTML = "số lớn nhất là:" + max;
+        } else {
+          document.getElementById("error").innerHTML = "invalid number";
+        }
+      }
+    </script>
+  </body>
+</html>

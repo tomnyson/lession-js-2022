@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nhap_sach {
+            margin: 10px 100px;
+            background-color: aqua;
+        }
+        
+        body {
+            display: flex;
+        }
+        
+        input[type="button"] {
+            padding: 5px;
+        }
+        
+        td {}
+    </style>
+</head>
+
+<body>
+    <div class="nhap_sach">
+        <form action="">
+            <table border="1">
+                <tr>
+                    <td><b>Mã sách</b><br><input type="text" name="ma_sach" id="ma_sach" placeholder="mã sách"></td>
+                </tr>
+                <tr>
+                    <td><b>Tên sách</b><br><input type="text" name="ma_sach" id="ten_sach" placeholder="tên_sách"></td>
+                </tr>
+                <tr>
+                    <td><b>Năm sản xuất</b><br><input type="text" name="ma_sach" id="nam_sx" placeholder="nam_sx"></td>
+                </tr>
+                <tr>
+                    <td><b>Số trang</b><br><input type="text" name="ma_sach" id="sotrang" placeholder="số trang"></td>
+                </tr>
+                <tr>
+                    <td><b>Tên Tác giả</b><br><input type="text" name="ma_sach" id="tacgia_sach" placeholder="Nhập tên tác giả"></td>
+                </tr>
+                <tr>
+                    <td><b>Giá Sách</b><br><input type="text" name="ma_sach" id="gia_sach" placeholder="Nhập giá tiền"></td>
+                </tr>
+                <tr>
+                    <td><br>
+                        <input type="button" value="Add" style="padding: 10px; margin-left: 10px ; margin-bottom: 10px" onclick="them()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <table border="1" class="xuat">
+            <tr>
+                <th>mã sách</th>
+                <th> tên sách</th>
+                <th>năm sản xuất sách</th>
+                <th>số trang sách</th>
+                <th>tên tác giả</th>
+                <th>giá sách</th>
+                <th>thao tác</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var quanli_sach = [];
+
+        function check(x) {
+            if (x == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function xuat() {
+            var chuoi = `<th>mã sách</th>
+                <th> tên sách</th>
+                <th>năm sản xuất sách</th>
+                <th>số trang sách</th>
+                <th>tên tác giả</th>
+                <th>giá sách</th> 
+                <th> thao tác </th>`;
+            quanli_sach.forEach((item, index) => {
+                chuoi += `<tr><td>  ${item.ma_sach}</td>
+                    <td> ${item.ten_sach}</td>
+                <td>  ${item.nam_sach}</td>
+               <td>${item.sotrang_sach}</td>
+                <td> ${item.tacgia_sach}</td>
+                <td> ${item.gia_sach}</td>
+                <td><input type="button" value="Xóa"name="xoa_sach" style="background-color:red; width:53px" onclick="xoa(${index})"></td><tr>`;
+            })
+            var xuat = document.getElementsByClassName("xuat")[0];
+            xuat.innerHTML = chuoi;
+        }
+
+        function xoa(x) {
+            quanli_sach.forEach((item, index) => {
+                quanli_sach.splice(x, 1);
+            })
+            xuat();
+        }
+
+        function them() {
+            var ma = document.getElementById("ma_sach").value;
+            var ten = document.getElementById("ten_sach").value;
+            var nam = document.getElementById("nam_sx").value;
+            var sotrang = document.getElementById("sotrang").value;
+            var tacgia = document.getElementById("tacgia_sach").value;
+            var gia = document.getElementById("gia_sach").value;
+            var sach = {
+                ma_sach: ma,
+                ten_sach: ten,
+                nam_sach: nam,
+                sotrang_sach: sotrang,
+                tacgia_sach: tacgia,
+                gia_sach: gia
+            }
+            var dem = true;
+            if (check(ma) || check(ten) || check(nam) || check(sotrang) || check(tacgia) || check(gia)) {
+                alert("mời nhập thông tin");
+            } else {
+                if (quanli_sach.length == 0) {
+                    quanli_sach.push(sach);
+                    console.log(quanli_sach);
+                    xuat();
+                } else {
+                    quanli_sach.forEach((item, index) => {
+                        if (item.ma_sach == ma) {
+                            dem = false;
+                            alert("mã đã tồn tại");
+                            var chon = confirm("bạn có muốn cập nhật không ??");
+                            if (chon == true) {
+                                item.ma_sach = ma;
+                                item.ten_sach = ten;
+                                item.nam_sach = nam;
+                                item.sotrang_sach = sotrang;
+                                item.tacgia_sach = tacgia;
+                                item.gia_sach = gia;
+                                console.log(quanli_sach);
+                                xuat();
+                            }
+                        }
+                    })
+                    if (dem == true) {
+                        quanli_sach.push(sach);
+                        console.log(quanli_sach);
+                        xuat();
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

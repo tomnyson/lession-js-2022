@@ -1,0 +1,41 @@
+body {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+td img {
+    height: 50px;
+}
+
+#update-form {
+    width: 600px;
+    height: 150px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 14px;
+    margin: 10px;
+    position: absolute;
+    top: 150px;
+    right: 20%;
+    background-image: linear-gradient(rgb(6, 104, 216), rgb(230, 95, 5));
+}
+
+input {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#update-form {
+    display: none;
+}

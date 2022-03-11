@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../views/css/component.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="register">
+            <div class="customerInfo">
+                <label for="username">UserName</label>
+                <input type="text" autocomplete="off" name="username" id="user" placeholder="Tên người dùng" />
+                <p id="usernameError" class="error" style="display: none;">Tên đăng nhập không được bỏ trống kí tự</p>
+            </div>
+            <div class="customerInfo">
+                <label for="password">Password</label>
+                <input type="password" autocomplete="off" name="password" id="pass" placeholder="Mật khẩu" />
+                <p id="passwordError" class="error" style="display: none;">Mật khẩu phải hơn 6 kí tự</p>
+
+            </div>
+            <div class="customerInfo">
+                <label for="repassword">RePassword</label>
+                <input type="password" autocomplete="off" name="repass" id="repass" placeholder="Nhập lại mật khẩu" />
+                <p id="repassError" class="error" style="display: none;">Mật khẩu không trùng khớp</p>
+
+            </div>
+            <div class="customerInfo customer_info"
+                style="display: flex;align-items: center; gap: 2px; margin-top: 10px">
+                <input type="checkbox" style="width: 30px;" id="showPass" onclick="showPass()" />
+                <label for="hienMk">Hiển thị mật khẩu</label>
+            </div>
+
+            <div class="login">
+                <button type="button" class="btn btn-primary" id="btnLogin" onclick="register()">Đăng kí</button>
+            </div>
+        </div>
+</body>
+<script src="../js/register.js"></script>
+
+</html>

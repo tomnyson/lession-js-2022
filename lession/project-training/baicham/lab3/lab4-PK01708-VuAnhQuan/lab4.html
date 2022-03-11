@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+	<title>Lab4 Anh Quân</title>
+	<script src="./lab4.js"></script>
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>Đăng Ký</h1>  
+            <span>User</span>
+            <input type="email" id="name" placeholder="Username" required>
+    
+            <span>Password</span>
+            <input type="password"
+                   id= "pw"
+                   placeholder="Password" required>
+    
+            <ul>
+                <li class="length">Phải có độ dài ít nhất 8 ký tự.</li>
+                <li class="lowercase">Phải chứa một chữ cái viết thường.</li>
+                <li class="uppercase">Phải chứa một chữ cái viết hoa.</li>
+                <li class="special">Phải chứa một số hoặc ký tự đặc biệt.</li>
+            </ul>
+            <input id="rgstr_btn" type="submit" value="Đăng Ký" onclick="store()">
+    
+        </form>
+    </div>
+    
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>Đăng Nhập</h1>
+    
+            <span>User</span>
+            <input type="email" id="userName" placeholder="Username" required>
+    
+            <span>Password</span>
+            <input type="password" id= "userPw" placeholder="Password" required>
+    
+            <div id="remember">
+                <input type="checkbox" value="lsRememberMe" id="rememberMe"
+                       style="display: inline-block;">
+                <span>Lưu tài khoản</span>
+            </div>
+    
+            <input id= "login_btn" type="submit" value="Đăng Nhập" onclick="check()">
+    
+        </form>
+    </div>
+</html>

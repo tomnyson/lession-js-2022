@@ -1,0 +1,48 @@
+.container {
+	width: 640px;
+	margin: 0px auto;
+}
+
+.panel {
+	width: 100%;
+	border: solid #21adf0 2px;
+	margin-bottom: 20px;
+}
+
+.panel-heading {
+	background-color: #21adf0;
+	color: white;
+	font-weight: bold;
+	padding: 6px;
+}
+
+.panel-body {
+	display: block;
+}
+
+.panel-body label, .panel-body input, .panel-body select, .panel-body .form-group {
+	display: block;
+	width: 96%;
+	font-size: 16px;
+	margin: 0px auto;
+	margin-bottom: 6px;
+}
+
+.panel-body label {
+	font-weight: bold;
+}
+
+.panel-body table {
+	width: 96%;
+	margin: 0px auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+table, th, td {
+	border: solid #c0bfbf 1px;
+}
+
+th, td {
+	padding: 5px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex">
+        <form id="frmSach" onsubmit="addSach()">
+          <label>mã sách</label>
+          <input type="text" id="maSach" placeholder="mã sách" />
+          <label>tên sách</label>
+          <input type="text" id="tenSach" placeholder="tên sách" />
+          <label>năm sản xuất</label>
+          <input type="text" id="namSX" placeholder="năm sx sách" />
+          <label>số trang</label>
+          <input type="text" id="soTrang" placeholder="số trang sách" />
+          <label>tác giả</label>
+          <input type="text" id="tacGia" placeholder="tác giả sách" />
+          
+        </form>
+    <button onclick="addData()" id="addbtn">add</button>
+    <button onclick="EditData()" id="Editbtn">Edit</button>
+    <button onclick="deleteData()" id="deletebtn">delete</button>
+    <button onclick="viewData()" id="viewbtn">view</button>
+    <button onclick="Search()" id="Searchbtn">Search</button>
+    <button onclick="refresh()" id="refreshbtn">refresh</button>
+    <div id="database"></div>
+    
+   <script src="./quanly.js"></script> 
+</body>
+</html>

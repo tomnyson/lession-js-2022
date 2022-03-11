@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="./login.js"></script>
+</head>
+<body>
+    <body id="particles-js"></body>
+<div class="animated bounceInDown">
+  <div class="container">
+    <div class="fadeIn first">
+        <img src="https://ap.poly.edu.vn/images/logo.png" id="icon" alt="User Icon" />
+    </div>
+    <span class="error animated tada" id="msg"></span>
+
+    <!-- <form name="form1" class="box" onsubmit="return checkStuff()"> -->
+        <form name="form1" class="box" role="form" onsubmit="signIn(event);" autocomplete="off">
+      <h4>Java<span>Script</span></h4>
+      <h5>Đăng nhập vào tài khoản của bạn.</h5>
+      <input type="text" name="email" id="email" placeholder="Account" autocomplete="off">
+      <i class="typcn typcn-eye" id="eye"></i>
+      <input type="password" name="password" placeholder="Passsword" id="pwd" autocomplete="off">
+        <label>
+          <input type="checkbox">
+          <span></span>
+          <small class="rmb">Nhớ mật khẩu</small>
+        </label>
+        <a href="#" class="forgetpass">Quên Mật Khẩu?</a>
+        <input type="submit" value="Đăng Nhập" class="btn1">
+       </form>
+    <!-- </form> -->
+
+        <a class="dnthave"  href="signup.html">Bạn không có tài khoản? Đăng Ký ngay</a> 
+  </div> 
+       <div class="footer">
+      <span>ASM được làm bởi Sinh Viên <i class="fa fa-heart pulse"></i> <a href="https://www.google.de/maps/place/Augsburger+Puppenkiste/@48.360357,10.903245,17z/data=!3m1!4b1!4m2!3m1!1s0x479e98006610a511:0x73ac6b9f80c4048f"><a href="https://www.facebook.com/thekien772001/">Kienntpk01531@gmail.com</a></span>
+    </div>
+</div>
+</body>
+</html>

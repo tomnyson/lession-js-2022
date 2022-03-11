@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // do {
+        //     var n = prompt("Nhap so n: ");
+        //     var x = true;
+        //     if (isNaN(n)) {
+        //         alert ("ko phải số");
+        //     }else{
+        //         for(i=0;i<n;i++){
+        //             if(i % 2 == 0){
+        //                 console.log(i);
+        //             }
+        //         }
+        //         x= false;
+        //     }
+        // } while (x);
+    //     function isLe(n) {
+    //         if (n % 2 != 0){
+    //             return true;
+    //         }else{
+    //             return false;
+    //         }
+    //     }
+    //     function printLe(n) {
+    //     for(let i = 0; i<= n; i++){
+    //         if(isLe(i)) {
+    //             console.log("i", i);
+    //         }
+    //     }
+    // }
+    // printLe(100);
+    
+    // function isCP() {
+    //     var n = document.getElementById("input").vaule;
+    //     var x;
+    //         if (x*x == n){
+    //             return true;
+    //         }else{
+    //             return false;
+    //         }
+    //     }
+    //     function printCP() {
+    //     var n = document.getElementById("input").value;
+    //     if(isCP(n)) {
+    //             console.log("Số chính phương", n);
+    //         }
+    // }
+    function bai1(){
+        let tam = 0;
+        for(let i = 0; i <=100;i++){
+            if(i % 3 == 0){
+                tam += i;
+            }
+            
+        }alert("Tổng các số chia hết cho 3 = " + tam);
+    }
+    function bai2(){
+        let tam = 0;
+        for(let i = 0; i <=100 ;i++){
+            if(i % 2 == 0){
+                if(i == 10){
+                    continue;
+                }
+            }tam += i;   
+        }alert("Tổng các số chia hết cho 2 loại trừ 10 = " + tam);
+    }
+    function bai3(){
+        for(let i =0 ; i<=100 ; i++){
+            if (i == 5 || i == 10){
+                continue;
+                
+            }
+            console.log(i);
+        }
+    }
+    function IsPrime(n)
+    {
+        if (n < 2)
+            return false;
+        for (let i = 2; i <= Math.sqrt(n); i++)
+        {
+            if (n % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    function bai4(){
+        for (let i = 0; i <= 100; i++){
+            if (IsPrime(i))
+            {
+                console.log(i);
+            }
+        }
+    }
+
+    function bai5(){
+        var n = prompt("Nhập số n")
+        var tam = 1;
+        for(let i=1;i<=n;i++){
+            tam = tam* i;
+        }
+        console.log("S= ", tam);
+    }
+    </script>
+    <form action="">
+        <input type="button" value="Bài 1" onclick="bai1()">
+        <input type="button" value="Bài 2" onclick="bai2()">
+        <input type="button" value="Bài 3" onclick="bai3()">
+        <input type="button" value="Bài 4" onclick="bai4()">
+        <input type="button" value="Bài 5" onclick="bai5()">
+    </form>
+</body>
+</html>

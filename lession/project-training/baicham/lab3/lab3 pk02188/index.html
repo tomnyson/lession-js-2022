@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>bai 1</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">  
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>hello javascript</h1>
+    <div class="flex">
+      <form id="frmSach" onsubmit="addSach()">
+        <label>mã sách</label>
+        <input type="text" id="maSach" placeholder="Mã sách" />
+        <label>tên sách</label>
+        <input type="text" id="tenSach" placeholder="Tên sách" />
+        <label>năm sản xuất</label>
+        <input type="text" id="namSX" placeholder="Năm sx sách" />
+        <label>số trang</label>
+        <input type="text" id="soTrang" placeholder="Số trang sách" />
+        <label>tác giả</label>
+        <input type="text" id="tacGia" placeholder="Tác giả sách" />
+        <input type="submit" value="Thêm sách" />
+      </form>
+      <div id="lstSach">
+        <h1>list sách</h1>
+        <table>
+          <thead>
+            <th>Mã Sách</th>
+            <th>Tên Sách</th>
+            <th>Năm Sản Xuất</th>
+            <th>Năm Số Trang</th>
+            <th>Tác Giả</th>
+            <th>Xóa</th>
+          </thead>
+          <tbody id="items"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+#slider{
+  width: 1100px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 4px #ddd;
+  padding: 10px;
+}

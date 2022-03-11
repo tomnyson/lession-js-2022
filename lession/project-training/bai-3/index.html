@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>bai 1</title>
+    <script src="./script.js"></script>
+    <style>
+      input {
+        display: block;
+        height: 30;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+      #frmXuly {
+        border: 1px solid green;
+        width: 500px;
+        margin: 0 auto;
+      }
+      #frmXuly div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      button {
+        background: green;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello javascript</h1>
+    <form id="frmXuly">
+      <div>
+        <label>số thứ 1</label>
+        <input id="txtsothu1" type="number" placeholder="nhap so thu nhat" />
+        <label>số thứ 2</label>
+        <input id="txtsothu2" type="number" placeholder="nhap so thu hai" />
+        <label>số thứ 3</label>
+        <input id="txtsothu3" type="number" placeholder="nhap so thu ba" />
+        <button type="submit" onclick="timSolonNhat()" id="btnClick">
+          submit
+        </button>
+        <p id="result"></p>
+      </div>
+    </form>
+  </body>
+</html>
