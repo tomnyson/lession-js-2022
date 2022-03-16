@@ -11,3 +11,7 @@ function tinhTong() {
   let ketqua = document.getElementById('ketqua');
   ketqua.innerHTML = "kết quả =" + soSanhAndNot;
 }
+
+let a = 5;
+a = 6;
+console.log(a)

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>bài 3 toán tử so sánh</title>
+   <style>
+     body {
+       background: #333;
+     }
+     .frm {
+       border: 1px solid #ccc;
+       margin: 0 auto;
+       width: 500px;
+       padding: 15px;
+       background: #fff;
+       border-radius: 10px;
+       margin-top: 20px;
+     }
+     input {
+       display: block;
+       margin: 10px 0;
+       width: 100%;
+       height: 40px;
+     }
+     button {
+       background: green;
+       padding: 10px;
+       color: #fff;
+       width: 200px;
+       cursor: pointer;
+     }
+     p {
+       color: green;
+       font-size: 20px;
+     }
+     #error {
+       display: block;
+       color: red;
+       margin: 10px 0;
+     }
+   </style>
+  </head>
+  <body>
+    <h1>câù điều kiện if else</h1>
+    <form class="frm">
+      <input type="text" id="sothu1" placeholder="số thứ 1"/>
+      <input type="text" id="sothu2" placeholder="số thứ 2"/>
+      <button onClick="tinhTong()" type="button">xem kết quả</button>
+      <p id="ketqua">ket quả:</p>
+    </form>
+    <form class="frm">
+      <h1>nhập điểm trung bình</h1>
+      <input type="text" id="dtb" placeholder="điểm trung bình"/>
+      <button onClick="xepLoaiSV()" type="button">xem kết quả</button>
+      <p id="hocLuc">ket quả:</p>
+    </form>
+
+    <form class="frm">
+      <h1>xem hôm nay là thứ mấy</h1>
+      <input type="text" id="thu" placeholder="nhập vào ngày (0->6)"/>
+      <span id="error"></span>
+      <button onClick="xemNgay()" type="button">xem kết quả</button>
+      <p id="hocLuc">ket quả:</p>
+    </form>
+   
+  </body>
+  <script src="./js/script.js"></script>
+</html>

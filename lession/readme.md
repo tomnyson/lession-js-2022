@@ -89,4 +89,4 @@ Phí thuê bao bắt buộc là 25 nghìn.
 
 nhập điểm (toán + văn + anh) 
 công thức điểm trung bình  (toán *2 + văn *2 + anh)/5.
-xếp loại học lực của sinh viên yếu, trung bình, khá, giỏi, xuất sắ
+xếp loại học lực của sinh viên yếu, trung bình, khá, giỏi, xuất sắc
