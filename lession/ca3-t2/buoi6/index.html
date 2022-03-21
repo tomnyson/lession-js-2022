@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>bài 3</title>
+  </head>
+  <style>
+    h1 {
+      color: green;
+    }
+    .frm {
+      margin: 0 auto;
+      padding: 20px;
+      width: calc(100%/3);
+      background-color: pink;
+      margin-top: 20px;
+    }
+    input {
+      height: 50px;
+    }
+    button {
+      padding: 10px;
+      font-size: 20px;
+      background: green;
+      color: white;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, label {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .center {
+      text-align: center;
+    }
+    p {
+      color: green;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    #error {
+      display: block;
+      color: red;
+    }
+  </style>
+  <body>
+    <form  class="frm">
+      <label>ví dụ về switch case</label>
+      <input type="text" id="txtSo" placeholder="nhập vào một số"/>
+      <span id="error"></span>
+      <div class="center">
+        <button onclick="inDaySo()" type="button">xem kết quả</button>
+        <button onclick="inSoChinhPhuong()" type="button">xem kết quả</button>
+        <p id="ketqua">kết quả:</p>
+        <p id="ketqua1">chia hết cho 3 và 5:</p>
+        <p id="ketqua2">chia hết cho 3 và 5:</p>
+      </div>
+    </form>
+  </body>
+  <script type="text/javascript" src="./js/script.js"></script>
+</html>

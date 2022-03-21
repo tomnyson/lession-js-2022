@@ -38,6 +38,10 @@
       font-weight: bold;
       font-size: 20px;
     }
+    #error {
+      display: block;
+      color: red;
+    }
   </style>
   <body>
     <h1>xin chào các bạn</h1>
@@ -59,6 +63,16 @@
       <div class="center">
         <button onclick="xepLoaiSv()" type="button">xem kết quả</button>
         <p id="xeploai">kết quả:</p>
+      </div>
+    </form>
+
+    <form  class="frm">
+      <label>ví dụ về switch case</label>
+      <input type="text" id="txtSo" placeholder="nhập vào một số từ 0-10"/>
+      <span id="error"></span>
+      <div class="center">
+        <button onclick="inCachDoc()" type="button">xem kết quả</button>
+        <p id="readSo">kết quả:</p>
       </div>
     </form>
   </body>

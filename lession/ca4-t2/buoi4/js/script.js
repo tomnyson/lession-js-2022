@@ -69,3 +69,28 @@ function xeploaiSV() {
   let ketquax=document.getElementById("ketqua1");
   ketquax.innerHTML = ketqua;
 }
+
+function docMenhGiaTien() {
+  let soTien = document.getElementById("txtSoTien").value
+  let inTienHtml = document.getElementById("inTien")
+  let ketqua
+  // isNaN
+  if(isNaN(soTien)) {
+    // ko phai la so
+    alert('no')
+  } else {
+    // la so 
+    switch(Number(soTien)) {
+      case 500:
+        ketqua = "năm trăm đồng chẵn"
+      break;
+      case 1000:
+        ketqua = "một nghìn  đồng chẵn"
+        break;
+      default:
+        ketqua="không hợp lệ"
+        break
+    }
+    inTienHtml.innerHTML = ketqua
+  }
+}

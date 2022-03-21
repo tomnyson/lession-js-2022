@@ -43,3 +43,41 @@ function xepLoaiSv() {
   let xeploaiHTML = document.getElementById('xeploai')
   xeploaiHTML.innerHTML = xeploai;
 } 
+
+function inCachDoc() {
+  let so = document.getElementById('txtSo').value;
+  let message = document.getElementById('error')
+  let ketqua;
+  message.innerHTML=''
+  if(!isNaN(so)) {
+    switch(Number(so)) {
+      case 0:
+        ketqua = 'số không'
+        break
+      case 1:
+        ketqua = 'số 1'
+        break
+      case 2:
+        ketqua = 'số 2'
+        break
+      case 3:
+          ketqua = 'số 3'
+          break
+      case 4:
+          ketqua = 'số 4'
+          break
+      case 5:
+            ketqua = 'số 5'
+            break
+      default: 
+          ketqua="sai giá trị"
+          break
+    }
+    let ketquaHTML =  document.getElementById('readSo')
+    ketquaHTML.innerHTML = ketqua
+  } else {
+    message.innerHTML = "ko phai so"
+  }
+  
+  // isNaN()
+}

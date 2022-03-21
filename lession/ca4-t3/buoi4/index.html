@@ -31,6 +31,13 @@
       .center {
         text-align: center
       }
+      #error {
+        color: red;
+        display: block;
+      }
+      .input-error {
+        border: 1px solid red;
+      }
     </style>
   </head>
   <body>
@@ -53,7 +60,16 @@
         <button onclick="soSanh()" type="button">xem kết quả</button>
         <p id="ketqua1">kết quả:</p>
       </div>
-     
+    </form>
+
+    <form>
+      <h1>test switch case</h1>
+      <input id="txtSo" type="text" placeholder="số thứ nhất"/>
+      <span id="error"></span>
+      <div class="center">
+        <button onclick="kiemTraChan()" type="button">xem kết quả</button>
+        <p id="ketqua2">kết quả:</p>
+      </div>
     </form>
   </body>
  <script src="./js/script.js"></script>

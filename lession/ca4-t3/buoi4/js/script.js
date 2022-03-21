@@ -48,3 +48,28 @@ function soSanh() {
   }
   ketqua.innerHTML = result
 }
+function kiemTraChan() {
+  let txtSo = document.getElementById('txtSo').value
+  let error = document.getElementById('error')
+  let ketqua = document.getElementById('ketqua2')
+  let result;
+  //isNaNN strung true, number false
+  if(isNaN(txtSo)) {
+    error.innerHTML = "nhập vào một số!"
+    document.getElementById('txtSo').className = "input-error"
+  } else {
+    error.innerHTML  = ''
+    document.getElementById('txtSo').classList.remove('input-error')
+    switch(Number(txtSo) % 2) {
+      case 0: 
+        result = "số chẵn"
+        break;
+      case 1:
+        result = "số lẻ"
+        break;
+      default:
+        result = "lỗi"
+    }
+    ketqua.innerHTML = result
+  }
+}

@@ -46,12 +46,41 @@ function xepLoaiSV() {
 function xemNgay() {
   let thu = document.getElementById('thu').value;
   let error = document.getElementById('error');
+  let elmKetqua = document.getElementById('ketquathu')
+ 
   error.innerHTML = ''
   // isNaN là hàm kiểm tra có phải số hay ko
+  let ketqua;
   if(isNaN(thu)) {
     // alert('ko phai so')
     error.innerHTML = "nhập vào 1 số"
   } else {
-    // alert('so')
+    switch(Number(thu)) {
+      case 0:
+        ketqua= "t2"
+      break;
+      case 1:
+        ketqua= "t3"
+        break;
+      case 2:
+        ketqua= "t4"
+        break;
+      case 3:
+        ketqua= "t5"
+        break;
+      case 4:
+        ketqua= "t6"
+        break;
+      case 5:
+        ketqua= "t7"
+        break;
+      case 6:
+        ketqua= "cn"
+        break;
+      default:
+        ketqua= "ngày ko đúng"
+        break;
+    }
   }
+  elmKetqua.innerHTML = ketqua
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      buổi 4
+    </title>
+    <style>
+      form {
+        background: #1ba1e2;
+        width: calc(100%/3);
+        margin: 0 auto;
+        padding: 50px 50px;
+        margin-top: 20px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 25px;
+      }
+      button {
+        padding: 10px;
+        background: #6A00FF;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .center {
+        text-align: center
+      }
+      p {
+        color: #6A00FF;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> cấu trúc điều kiện</h1>
+    <form>
+      <input type="text" id="tuoi" placeholder="tuổi"/>
+      <input type="text" id="gioitinh" placeholder="giới tính(nam || nu)"/>
+      <div class="center">
+        <button onClick="tinhTong()" type="button">xem kết quả</button>
+        <p id="ketqua">kết quả:<p>
+      </div>
+    </form>
+    <form>
+      <h3>Xếp loại sinh viên</h3>
+      <input type="text" id="dtb" placeholder="nhập điểm TB"/>
+      <div class="center">
+        <button onClick="xeploaiSV()" type="button">xem kết quả</button>
+        <p id="ketqua1">kết quả:<p>
+      </div>
+    </form>
+
+    <form>
+      <h3>đọc mệnh giá tiền</h3>
+      <input type="text" id="txtSoTien" placeholder="nhập mệnh giá tiền vnd"/>
+      <div class="center">
+        <button onClick="docMenhGiaTien()" type="button">xem kết quả</button>
+        <p id="inTien">kết quả:<p>
+      </div>
+    </form>
+  </body>
+  <script src="./js/script.js"></script>
+</html>

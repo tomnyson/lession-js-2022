@@ -90,3 +90,84 @@ Phí thuê bao bắt buộc là 25 nghìn.
 nhập điểm (toán + văn + anh) 
 công thức điểm trung bình  (toán *2 + văn *2 + anh)/5.
 xếp loại học lực của sinh viên yếu, trung bình, khá, giỏi, xuất sắc
+
+## vòng lặp
+
+```
+function print_number()
+{
+    // Lấy number
+    var number = document.getElementById("number").value;
+ 
+    // Ép number sang kiểu INT
+    number = parseInt(number);
+ 
+    // Lặp để in kết quả
+    var html = '';
+    for (var i = 1; i <= number; i++){
+        html += i + ' <br/>';
+    }
+    document.getElementById("result").innerHTML = html;
+}
+```
+### kiểm tra nguyên tố
+```
+// hàm kiểm tra số nguyên tố
+function kiem_tra_snt(n)
+{
+    // Biến cờ hiệu
+    var flag = true;
+ 
+    // Nếu n bé hơn 2 tức là không phải số nguyên tố
+    if (n < 2) {
+        flag = false;
+    }
+    else if (n == 2) {
+        flag = true;
+    }
+    else if (n % 2 == 0) {
+        flag = false;
+    }
+    else {
+        // lặp từ 3 tới n-1 với bước nhảy là 2 (i+=2)
+        for (var i = 3; i <= Math.sqrt(n); i += 2)
+        {
+            if (n % i == 0) {
+                flag = false;
+                break;
+            }
+        }
+    }
+ 
+    return flag;
+}
+ ```
+
+ ### thay đổi màu của tag
+
+ ```
+ function change_backgroud()
+{
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++){
+        // Vị trí chẵn => màu đỏ
+        if ((i + 1) % 2 == 0){
+            divs[i].style.background = "red";
+        }
+        else { // Vị trí lẽ => màu xanh
+            divs[i].style.background = "blue";
+        }
+    }
+}
+
+```
+
+6. Bạn hãy viết chương trình tính tổng của 50 số 50, 49, 48, ..., 1.
+3. In ra các số từ 1 đến 100 mà chia hết cho 3.
+5. Bạn hãy viết chương trình tính tổng của 50 số 1, 2, 3, ..., 50.
+6. Bạn hãy viết chương trình tính tổng của 50 số 50, 49, 48, ..., 1.
+7. Bạn hãy viết chương trình tình tổng của 50 số chẵn bắt đầu từ 2.
+8. Bạn hãy viết chương trình tính tổng của 20 số 5, 10, 15, ..., 100.
+<p>10. Bạn hãy nhập vào một số N bất kỳ và kiểm tra xem N có phải số nguyên tố hay không?&nbsp;<em>(Số nguyên tố là một số nguyên dương lớn hơn 1 và chỉ chia hết cho 1 và chính nó, ví dụ: 2, 3, 5, 7, 11, ...)</em></p>
+10. Nhập số nguyên n. Tính giá trị biểu thức S= 1.2 + 2.3 + 3.4 + ... + n(n+1).
+11. Viết chương trình kiểm tra số n có phải là số hoàn thiện không?
