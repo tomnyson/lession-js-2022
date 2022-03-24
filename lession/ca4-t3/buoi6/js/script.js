@@ -42,6 +42,43 @@ function inDanhSach(){
     alert('Error input')
   }
 
+  
+}
+
+function exampleWhile() {
+  let n = document.getElementById('txtSo').value
+  let ketquaHTML = document.getElementById('ketqua')
+  let result = ''
+  let resultChan = ''
+  let i=0;
+  while(i< Number(n)) {
+    if(isChan(i)) {
+      result+=`<span>${i}</span>, `
+    }
+    i++
+  }
+  ketquaHTML.innerHTML = result
+}
+
+function exampleDoWhile() {
+  let n = document.getElementById('txtSo').value
+  let ketquaHTML = document.getElementById('ketqua')
+  let result = ''
+  let resultChan = ''
+  let i=0;
+  // do {
+  //   n = prompt('enter n')
+  // } while(isNaN(n))
+  do{
+    if(isChan(i)) {
+      result+=`<span>${i}</span>, `
+    }
+    i++
+  } while((i< Number(n)) )
+  ketquaHTML.innerHTML = `chẵn ${result}`
+}
+
+
   /**
   *  in sổ lẻ 
    * in số chẵn
@@ -55,6 +92,3 @@ function inDanhSach(){
    * tính tổng nguyên: S = 1 + 1/2 + 1/3 + 1/4 +… 1/n
    * 
    */
- 
-  
-}

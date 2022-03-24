@@ -28,6 +28,7 @@ function inDanhSachSo() {
   let chinhPhuongHTML = document.getElementById('chinhPhuong')
   let result = '';
   let chinhPhuong = ''
+
   if(!isNaN(n)) {
     for(let i=0; i< Number(n); i++) {
       // kiểm tra ở đây chẵn
@@ -66,6 +67,7 @@ function tinhTong() {
   let so1 = document.getElementById('so1').value
   let so2 = document.getElementById('so2').value
   let ketquaHTML = document.getElementById('ketquaTong')
+  let ketquaChan = ''
   // yêu cầu đầu vào là số
   if(!isNaN(so1) && !isNaN(so2)) {
     let sum =0;
@@ -73,15 +75,39 @@ function tinhTong() {
     if(Number(so1) < Number(so2)){
       while(Number(so1) <= Number(so2)) {
         sum = sum + Number(so1);
-        // tính tổn
+        // tính tổ
+        // im chan
+        if(isChan(so1)) {
+          // sum +=i;
+          ketquaChan += `<span>${so1}</span>, `;
+        }
         so1++
       }
       // in kết quả
-      ketquaHTML.innerHTML = sum
+      ketquaHTML.innerHTML = `sum:${sum} </br> chăn: ${ketquaChan}`
     }else {
       alert(`lỗi: ${so1}>${so2}`)
     }
   } else {
     alert('lỗi nhập liệu')
   }
+}
+
+function calDoWhile() {
+  let so1 = document.getElementById('txtSo1').value
+  let ketquaHTML = document.getElementById('ketquaTong1')
+  let sum=0;
+  // do {
+  //  so1 = prompt('ban nhap sai moi nhap lai')
+   
+  // } while(isNaN(so1))
+  // while(Number(so1)<1000) {
+  //   sum+=Number(so1)
+  //   so1++;
+  // }
+  do {
+    sum+=Number(so1)
+    so1++
+  } while(Number(so1)<1000)
+  ketquaHTML.innerHTML = sum
 }

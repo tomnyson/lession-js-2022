@@ -69,6 +69,41 @@ function xuatDuLieu() {
   cpHTML.innerHTML = cp
 }
 
+function xuatDuLieuWhile() {
+  let so = document.getElementById('txtSo').value
+  let ketquaHTML = document.getElementById('ketquaWhile')
+  let ketqua ='lẻ: '
+  let i=0;
+  while (i< Number(so)) {
+    if(isCheckSoLe(i)) {
+      ketqua+= `<span>${i}</span>, `
+    }
+    i++
+  }
+  ketquaHTML.innerHTML =ketqua
+}
+function exampleDoWhile(){
+  let so = document.getElementById('txtSo').value;
+  // do {
+  //   so = prompt('enter number')
+  // } while(isNaN(so))
+  let ketquaHTML = document.getElementById('ketquaDoWhile')
+  // let ketqua ='lẻ: '
+  // let i=0;
+  // while (i< Number(so)) {
+  //   if(!isCheckSoLe(i)) {
+  //     ketqua+= `<span>${i}</span>, `
+  //   }
+  //   i++
+  // }
+  let sum =0;
+  do {
+    sum+=Number(so)
+    so++
+  } while(Number(so)<100)
+
+  ketquaHTML.innerHTML =sum
+}
 /**
  *  in sổ lẻ 
    * in số chẵn
@@ -80,5 +115,7 @@ function xuatDuLieu() {
    * in ra số hoàn thiện
    * Tính tổng tất cả các “ước số” của số nguyên dương
    * tính tổng nguyên: S = 1 + 1/2 + 1/3 + 1/4 +… 1/n
-   * 
+   * Tính S(n) = 1^3 + 2^3 + … + N^3 
+    * Tính S(n) = x^2 + x^4 + … + x^2n
+    * Tính S(n) = 1/2 + 3/4 + 5/6 + … + (2n + 1)/( 2n + 2)
    */

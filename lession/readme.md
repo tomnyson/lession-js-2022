@@ -171,3 +171,7 @@ function kiem_tra_snt(n)
 <p>10. Bạn hãy nhập vào một số N bất kỳ và kiểm tra xem N có phải số nguyên tố hay không?&nbsp;<em>(Số nguyên tố là một số nguyên dương lớn hơn 1 và chỉ chia hết cho 1 và chính nó, ví dụ: 2, 3, 5, 7, 11, ...)</em></p>
 10. Nhập số nguyên n. Tính giá trị biểu thức S= 1.2 + 2.3 + 3.4 + ... + n(n+1).
 11. Viết chương trình kiểm tra số n có phải là số hoàn thiện không?
+
+ if(!isChan(mang3[i])) {
+      ketqua+= `<span>${mang3[i]}</span>, `
+    }

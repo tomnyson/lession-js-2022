@@ -19,19 +19,7 @@ function inDaySo() {
    *  điều kiện: i< 100
    *  bước nhảy +1 => i++
    */
-  /**
-   * in sổ lẻ 
-   * in số chẵn
-   * in số chia hết cho 3 & 5
-   * tính tổng của dãy số
-   * tính trung bình cộng của dãy số
-   * in ra sô chính phương
-   * in ra số nguyên tố
-   * in ra số hoàn thiện
-   * Tính tổng tất cả các “ước số” của số nguyên dương
-   * tính tổng nguyên: S = 1 + 1/2 + 1/3 + 1/4 +… 1/n
-   * 
-   */
+ 
   let n = document.getElementById('txtSo').value;
   let ketquaHTML = document.getElementById('ketqua');
   let chia3va5HTML = document.getElementById('ketqua1');
@@ -82,3 +70,57 @@ function inSoChinhPhuong(){
   }
   ketqua.innerHTML = hienthi;
 }
+
+function exampleWhile() {
+  let so = document.getElementById('txtSo1').value;
+  let ketquaHTML = document.getElementById('ketquaWhile')
+  let ketqua = ''
+  let i =0;
+  // dk dau vao vong lap
+  while(i<Number(so)) {
+    // body while
+    // check chan
+    if(isKiemTraLoaiSo(i)) {
+      ketqua+=`<span>${i}`+`</span>, `;
+    }
+    i++;
+  }
+  ketquaHTML.innerHTML = ketqua
+}
+
+function exampleDoWhile() {
+  let so = document.getElementById('txtSo3').value;
+  let ketquaHTML = document.getElementById('ketquaDoWhile')
+  // console.log('so 1',so)
+  // // kiem tra nhap lieu neu ma ko phai number bat nhap lai
+  console.log('isNaN(so)',isNaN(Number(so)))
+  do {
+    // loop body
+    console.log('call here')
+    so = prompt('nhập vào số')
+  } while (isNaN(so))
+  console.log('so', so)
+
+
+  let ketqua = ''
+  do {
+    if(isKiemTraLoaiSo(so)) {
+      ketqua+= `<span>${so}</span>, `
+    }
+    so++;
+  } while (Number(so) < 100)
+  ketquaHTML.innerHTML = ketqua
+}
+ /**
+   * in sổ lẻ 
+   * in số chẵn
+   * in số chia hết cho 3 & 5
+   * tính tổng của dãy số
+   * tính trung bình cộng của dãy số
+   * in ra sô chính phương
+   * in ra số nguyên tố
+   * in ra số hoàn thiện
+   * Tính tổng tất cả các “ước số” của số nguyên dương
+   * tính tổng nguyên: S = 1 + 1/2 + 1/3 + 1/4 +… 1/n
+   * 
+   */
