@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>mang nang cao</title>
+  </head>
+  <style>
+    h1 {
+      color: green;
+    }
+    .frm {
+      margin: 0 auto;
+      padding: 20px;
+      width: calc(100%/3);
+      background-color: pink;
+      margin-top: 20px;
+    }
+    input {
+      height: 50px;
+    }
+    button {
+      padding: 10px;
+      font-size: 20px;
+      background: green;
+      color: white;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, label {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .center {
+      text-align: center;
+    }
+    p {
+      color: green;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    #error {
+      display: block;
+      color: red;
+    }
+  </style>
+  <body>
+    <form  class="frm">
+      <label>mang nang cao</label>
+      <input type="text" id="txtSo" placeholder="nhập vào một số"/>
+      <span id="error"></span>
+      <div class="center">
+        <button id="btnTaoMang" type="button">random</button>
+        <button id="btnThem" type="button">Them</button>
+        <button id="btnXoa" type="button">xoa</button>
+        <button id="btnGhepMang" type="button">ghep mang</button>
+        <button id="btnCopy" type="button">copy mang</button>
+        <button id="btnXoaVitri" type="button">xoá ở vị trí</button>
+        <button id="btnXoaX" type="button">xoá x</button>
+
+        <p id="ketqua">kết quả:</p>
+        <p id="ketqua1">kết quả:</p>
+      </div>
+    </form>
+  </body>
+  <script type="text/javascript" src="./js/script.js"></script>
+</html>

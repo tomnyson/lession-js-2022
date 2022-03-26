@@ -97,7 +97,7 @@ function isHoanThien(n) {
   if(sum==n) return true;
   return false;
 }
-createArrayRandom(100,100)
+// createArrayRandom(100,100)
 
   /**
    * yêu cầu nhập vào một số nếu ko phải số yêu cầu nhập lại
@@ -115,3 +115,156 @@ createArrayRandom(100,100)
    * sắp xếp tăng dần
    * sắp xếp giảm dần
    */
+  var mangGlobal
+  function taoMangRandom() {
+    let n = document.getElementById('txtSo1').value;
+    mangGlobal = createArrayRandom(Number(n) || 100,Number(n)||100)
+
+    inMang(mangGlobal)
+  }
+  function inMang() {
+    let ketquaHTMl = document.getElementById('ketqua1');
+    let ketqua = ''
+    for(let i=0; i<mangGlobal.length; i++) {
+      ketqua+=`<span>${mangGlobal[i]}</span>, `
+    }
+    ketquaHTMl.innerHTML = ketqua 
+  }
+  // function bubbleSort(array) {
+  //   var done = false;
+  //   while (!done) {
+  //     done = true;
+  //     for (var i = 1; i < array.length; i += 1) {
+  //       if (array[i - 1] > array[i]) {
+  //         done = false;
+  //         var tmp = array[i - 1];
+  //         array[i - 1] = array[i];
+  //         array[i] = tmp;
+  //       }
+  //     }
+  //   }
+  
+  //   return array;
+  // }
+  // function bubbleSortGiam(array) {
+  //   var done = false;
+  //   while (!done) {
+  //     done = true;
+  //     for (var i = 1; i < array.length; i += 1) {
+  //       if (array[i - 1] < array[i]) {
+  //         done = false;
+  //         var tmp = array[i - 1];
+  //         array[i - 1] = array[i];
+  //         array[i] = tmp;
+  //       }
+  //     }
+  //   }
+  
+  //   return array;
+  // }
+  // document.getElementById('sortTang').addEventListener('click', function(event) {
+  //   let arrTang = bubbleSort(mangGlobal)
+  //   inMang(arrTang)
+  // })
+  // document.getElementById('sortGiam').addEventListener('click', function(event) {
+  //   let arrTang = bubbleSortGiam(mangGlobal)
+  //   inMang(arrTang)
+  // })
+
+  // document.getElementById('sortGiamFunc').addEventListener('click', function(event) {
+  //   let arrTang = mangGlobal.sort((a, b) => (a > b ? -1 : 1))
+  //   inMang(arrTang)
+  // })
+  // document.getElementById('sortTangFunc').addEventListener('click', function(event) {
+  //   let arrTang = mangGlobal.sort()
+  //   inMang(arrTang)
+  // })
+
+  let mang = []
+
+  // them mot phan  vao mang
+  document.getElementById('them')
+  .addEventListener('click', function(event) {
+    let n = document.getElementById('txtSo1').value;
+    let ketquaHTMl = document.getElementById('ketqua1');
+    // mang.push(Number(n))
+    mang.unshift(Number(n))
+    document.getElementById('txtSo1').value = ""
+    ketquaHTMl.innerHTML = mang.toString()
+    console.log('mang', mang)
+  })
+
+  document.getElementById('ngauNhien')
+  .addEventListener('click', function(event) {
+    let n = document.getElementById('txtSo1').value;
+    let ketquaHTMl = document.getElementById('ketqua1');
+    document.getElementById('txtSo1').value = ""
+    mang =  createRandom(Number(n)||10)
+    ketquaHTMl.innerHTML = mang.join(' ');
+  })
+
+  document.getElementById('xoa')
+  .addEventListener('click', function(event) {
+    // let n = document.getElementById('txtSo1').value;
+    // mang.pop();
+    mang.shift()
+    let ketquaHTMl = document.getElementById('ketqua1');
+    document.getElementById('txtSo1').value = ""
+    console.log('mang',mang)
+    ketquaHTMl.innerHTML = mang.join(' ');
+  })
+
+  document.getElementById('copy')
+  .addEventListener('click', function(event) {
+    //c1 toan tu ...
+    // const mangMoi = [...mang]
+    //c2: concat
+    // const mangMoi = mang.concat();
+    // c3: slice
+    const mangMoi = mang.slice();
+    let ketquaHTMl = document.getElementById('ketqua2');
+    document.getElementById('txtSo1').value = ""
+    console.log('mang',mang)
+    ketquaHTMl.innerHTML = mangMoi.join(' ');
+  })
+
+  document.getElementById('xoaSo')
+  .addEventListener('click', function(event) {
+    //c1 toan tu ...
+    // const mangMoi = [...mang]
+    //c2: concat
+    // const mangMoi = mang.concat();
+    // c3: slice
+    n = prompt('nhập vào số cần xoá')
+    // const mangMoi = mang.slice();
+    // let ketquaHTMl = document.getElementById('ketqua2');
+    // document.getElementById('txtSo1').value = ""
+    // console.log('mang',mang)
+    // ketquaHTMl.innerHTML = mangMoi.join(' ');
+  })
+
+  function isCheckExist(x, mang) {
+    for (let i = 0; i < mang.length; i++) {
+      if(mang[i] === x) {
+        return true
+      }
+    }
+    return false
+  }
+
+  function createRandom(n=10) {
+    let mang=[];
+    for(let i=0; i<n; i++) {
+      mang.push(Math.floor(Math.random() * n) + 0)
+    }
+    return mang;
+  }
+
+  let mangA= [1,2,3]
+  let mangB = [4,5,6]
+  let mangC = mangB.slice()
+  let mangChung = mangA.concat(mangB)
+  console.log('mangC', mangC)
+  mangC.splice(0,1)
+  console.log('manf chung', mangChung)
+  console.log('mangC', mangC)
