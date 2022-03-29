@@ -113,6 +113,52 @@ document.getElementById('btnXoaX')
   //body
 })
 
+document.getElementById('btnSortTang')
+.addEventListener('click', function (event) {
+  let ketquaHTML = document.getElementById('ketqua1')
+  let temp;
+  for (let i = 0; i < mang.length; i++) {
+    for (let j = i + 1; j < mang.length; j++) {
+      if (mang[i] > mang[j]) {
+        temp = mang[i];
+        mang[i] = mang[j];
+        mang[j] = temp;
+      }
+    }
+  }
+    ketquaHTML.innerHTML = mang.join(', ')
+})
+
+document.getElementById('btnSortGiam')
+.addEventListener('click', function (event) {
+  let ketquaHTML = document.getElementById('ketqua1')
+  let temp;
+  for (let i = 0; i < mang.length; i++) {
+    for (let j = i + 1; j < mang.length; j++) {
+      if (mang[i] < mang[j]) {
+        temp = mang[i];
+        mang[i] = mang[j];
+        mang[j] = temp;
+      }
+    }
+  }
+    ketquaHTML.innerHTML = mang.join(', ')
+})
+
+document.getElementById('btnSortTangFunc')
+.addEventListener('click', function (event) {
+  let ketquaHTML = document.getElementById('ketqua1')
+  mang.sort(function(a,b){return a -b})
+    ketquaHTML.innerHTML = mang.join(', ')
+})
+
+document.getElementById('btnSortGiamFunc')
+.addEventListener('click', function (event) {
+  let ketquaHTML = document.getElementById('ketqua1')
+  mang.sort(function(a,b){return b-a})
+    ketquaHTML.innerHTML = mang.join(', ')
+})
+
 
 function randomArr(n) {
   let mang = [];

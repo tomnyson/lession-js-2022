@@ -252,6 +252,21 @@ function isHoanThien(n) {
     return false
   }
 
+  document.getElementById('sapXepTang').addEventListener('click', function(e) {
+    // let temp;
+    // for(let i=0; i < mang.length-1; i++) {
+    //   for(let j=i+1; j<mang.length; j++ ) {
+    //     if(mang[i] > mang[j]) {
+    //       temp = mang[i]
+    //       mang[i] = mang[j]
+    //       mang[j] = temp
+    //     }
+    //   }
+    // }
+    mang.sort(function(a, b){return a-b});
+    let ketquaHTMl = document.getElementById('ketqua2');
+    ketquaHTMl.innerHTML = mang.join(' ');
+  })
   function createRandom(n=10) {
     let mang=[];
     for(let i=0; i<n; i++) {

@@ -75,6 +75,54 @@ document.getElementById('btnXoaX').addEventListener('click', function(e) {
  
 })
 
+
+document.getElementById('btnSortTang').addEventListener('click', function(e) {
+  let kequaHTML = document.getElementById('ketqua1')
+  //c1 ko dung ham
+  let temp;
+  for(let i=0; i<mang.length; i++) {
+    for(let j=i+1; j<mang.length; j++) {
+      if(mang[i] > mang[j]) {
+        temp = mang[i]
+        mang[i] = mang[j]
+        mang[j] = temp
+      }
+    }
+  }
+  kequaHTML.innerHTML = mang.join(", ")
+})
+document.getElementById('btnSortGiam').addEventListener('click', function(e) {
+  let kequaHTML = document.getElementById('ketqua1')
+  //c1 ko dung ham
+  let temp;
+  for(let i=0; i<mang.length; i++) {
+    for(let j=i+1; j<mang.length; j++) {
+      if(mang[i] < mang[j]) {
+        temp = mang[i]
+        mang[i] = mang[j]
+        mang[j] = temp
+      }
+    }
+  }
+  kequaHTML.innerHTML = mang.join(", ")
+})
+
+document.getElementById('btnSortTangFunc').addEventListener('click', function(e) {
+  let kequaHTML = document.getElementById('ketqua1')
+  //c1 ko dung ham
+  // mang.sort()
+  mang.sort(function(a,b) { return a -b})
+  kequaHTML.innerHTML = mang.join(", ")
+})
+
+document.getElementById('btnSortGiamFunc').addEventListener('click', function(e) {
+  let kequaHTML = document.getElementById('ketqua1')
+  //c1 ko dung ham
+  // mang.sort().reverse()
+  mang.sort(function(a,b) { return b -a})
+  kequaHTML.innerHTML = mang.join(", ")
+})
+
 function ngauNhien(x) {
   let mang = []
   for(let i =0; i < x ; i++) {

@@ -36,7 +36,7 @@ document.getElementById('btnGhepMang').addEventListener('click', function(e) {
     ketquaHTML.innerHTML = mangMoi.join(', ');
   })
 
-  document.getElementById('btnCopy').addEventListener('click', function(e) {
+document.getElementById('btnCopy').addEventListener('click', function(e) {
     let ketquaHTML = document.getElementById('ketqua1');
     //c1: concat
     // let mangMoi = mang.concat();
@@ -48,7 +48,7 @@ document.getElementById('btnGhepMang').addEventListener('click', function(e) {
       ketquaHTML.innerHTML = mangMoi.join(', ');
     })
 
-    document.getElementById('btnXoaViTri').addEventListener('click', function(e) {
+document.getElementById('btnXoaViTri').addEventListener('click', function(e) {
       let ketquaHTML = document.getElementById('ketqua');
       let n = document.getElementById('txtSo').value;
       if(n !=='' && (Number(n) >=0 && Number(n) <= mang.length)){
@@ -64,8 +64,48 @@ document.getElementById('btnGhepMang').addEventListener('click', function(e) {
         ketquaHTML.innerHTML = mang.join(', ');
       })
 
-      
-    
+document.getElementById('btnsortTang').addEventListener('click', function(e) {
+        let ketquaHTML = document.getElementById('ketqua');
+         let temp;
+         for(let i=0;i<mang.length;i++){
+           for(let j=i+1; j<mang.length; j++) {
+             if(mang[i] > mang[j]) {
+               temp = mang[i];
+               mang[i] = mang[j];
+               mang[j] = temp;
+             }
+           }
+         }
+          ketquaHTML.innerHTML = mang.join(', ');
+        })
+document.getElementById('btnsortGiam').addEventListener('click', function(e) {
+          let ketquaHTML = document.getElementById('ketqua');
+           let temp;
+           for(let i=0;i<mang.length;i++){
+             for(let j=i+1; j<mang.length; j++) {
+               if(mang[i] < mang[j]) {
+                 temp = mang[i];
+                 mang[i] = mang[j];
+                 mang[j] = temp;
+               }
+             }
+           }
+            ketquaHTML.innerHTML = mang.join(', ');
+          })
+        
+ document.getElementById('btnsortGiamFunc').addEventListener('click', function(e) {
+  let ketquaHTML = document.getElementById('ketqua1');
+  mang.sort(function(a,b){ return b -a})           
+  ketquaHTML.innerHTML = mang.join(', ');
+})
+
+document.getElementById('btnsortTangFunc').addEventListener('click', function(e) {
+  let ketquaHTML = document.getElementById('ketqua1');
+  mang.sort(function(a,b){ return a -b})           
+  ketquaHTML.innerHTML = mang.join(', ');
+})
+   
+
 function randomNgauNhien(x) {
   let mang = [];
   for(let i=0;i < x;i++) {
