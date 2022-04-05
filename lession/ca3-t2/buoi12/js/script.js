@@ -85,3 +85,21 @@ console.log(listUsers.login('admin', '12345'))
 // for(let i=0; i<listUsers.getListUsers().length; i++){
 //   listUsers.getListUsers()[i].xuatThongTin()
 // }
+
+document.getElementById('frmDangKy').addEventListener('submit', function(event){
+  // ngăn chặn form load
+  event.preventDefault()
+  const name = document.getElementById('name').value
+  const username = document.getElementById('username').value
+  const password = document.getElementById('password').value
+  const email = document.getElementById('email').value
+  const role = document.getElementById('role').value
+  document.getElementById('error-name').innerHTML = ''
+
+  if(name === '') {
+    document.getElementById('error-name').innerHTML = 'Name không được để trống'
+    // alert('Please enter name')
+  }
+
+
+})
