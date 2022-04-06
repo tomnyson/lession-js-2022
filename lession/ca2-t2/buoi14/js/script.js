@@ -151,7 +151,7 @@ class User {
     alert('login form')
   })
   // xử lý profile ở đây đợi page đã load xong trang web
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
     const currentUser = store.parseUser();
     console.log('name',currentUser)
       document.getElementById('username').innerHTML = `username: ${currentUser.getUsername()}`;

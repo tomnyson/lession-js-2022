@@ -30,9 +30,9 @@ class Product {
       }
       //c1 
       if(vt !== -1) {
-        this.products[vt] = product;
+        // this.products[vt] = product;
         // remove product
-        // this.products.splice(vt, 1)
+        this.products.splice(vt, 1, product)
         // this.products.push(product)
         return true
       }
