@@ -9,13 +9,13 @@ body {
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
-#frmDangKy {
+#frmLogin {
   background: #fff;
   padding:20px;
   margin-top: 50px;
 }
 
-#frmDangKy button {
+#frmLogin button {
   margin-top: 20px;
 }
 .flex {
@@ -31,39 +31,24 @@ body {
     <div class="container">
       <div class="row flex">
         <div class="col-sm-6 col-sm-offset-2">
-        
-          <form id="frmDangKy">
-            <h3>Register</h3> 
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
-            </div>
+          <form id="frmLogin">
+            <h3>Login</h3> 
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">User name</label>
               <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
               <input type="password" class="form-control" id="password">
             </div>
-            <select class="form-select" id="role" aria-label="Default select example">
-              <option selected>select role</option>
-              <option value="admin">admin</option>
-              <option value="user">user</option>
-            </select>
-            <button type="submit" class="btn btn-primary btn-submit">Register</button>
+            <button type="submit" class="btn btn-primary btn-submit">Login</button>
             <div>
               <a class="btn btn-link" href="./login.html">have a account</a>
             </div>
           </form>
-      
+          </div>
         </div>
       </div>
-    </div>
   </body>
   <script src="./js/script.js"></script>
 </html>

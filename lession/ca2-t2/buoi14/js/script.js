@@ -46,31 +46,101 @@ class User {
       return check
     }
     login(username, password) {
-      const currentList = this.users
-      let check = false;
-      for(let i = 0; i < currentList.length; i++) {
-       console.log(currentList[i]) 
+      for(let i = 0; i < this.users.length; i++) {
+        const currentUser = this.users[i];
+        if(currentUser.getUsername() === username 
+        && currentUser.getPassword() === password) {
+          return currentUser
+        }
       }
-    //   const user = currentList.find(currentUser =>
-    //      currentUser.getUsername() ===username && currentUser.getPassword() === password)
-    //   return user
+      return null
+    }
+    save() {
+        if(this.users.length > 0) {
+          const data = JSON.stringify(this.users)
+          localStorage.setItem('users', data)
+        }
+    }
+    getData() {
+      const data = JSON.parse(localStorage.getItem('users'))
+      if(data) {
+        const listUser = []
+        for(let i =0; i < data.length; i++) {
+          const user = new User(data[i].name,
+             data[i].username,
+              data[i].password, 
+              data[i].email,
+               data[i].role)
+          listUser.push(user)
+        }
+        this.users = listUser
+      }
     }
 
     getListUser() {
       return this.users
     }
+    saveUser(user) {
+      localStorage.setItem('auth', JSON.stringify(user))
+    }
+    parseUser() {
+      const data = JSON.parse(localStorage.getItem('auth'))
+      if(data) {
+        const user = new User(data.name,
+             data.username,
+              data.password, 
+              data.email,
+               data.role)
+        return user
+      }
+      return null
+    }
  }
-  const storeUsers = new StoreUsers();
-  const user1 = new User('Nguyen Van A', 'nguyenvanA', '123456', 'admin@gmail.com', 'admin')
-  const user2 = new User('Nguyen Van B', 'nguyenvanA', '123456', 'admin@gmail.com', 'admin')
-  const isCreate1 = storeUsers.addUser(user1);
-  const isCreate = storeUsers.addUser(user2);
+  const store = new StoreUsers();
+  store.getData()
+  console.log('store', store);
+  document.getElementById('frmDangKy')&& document.getElementById('frmDangKy').addEventListener('submit', function(event){
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value
+    const email = document.getElementById('email').value;
+    const role = document.getElementById('role').value;
+  
+    if(name === '' || username === '' || password === '' || email === '' || role === ''){
+      alert('invalid value')
+    } else {
+      const user = new User(name, username, password, email, role)
+      const isCreate = store.addUser(user)
+      if(isCreate){
+        alert('đăng ký thành công')
+        store.save()
+      } else {
+        alert('username đã tồn tại')
+      }
+      console.log(isCreate)
+   
+    }
+  })
 
-  console.log(storeUsers.getListUser())
- const currentList = storeUsers.getListUser();
-  for(let i=0; i < currentList.length; i++) {
-    console.log(currentList[i].getUsername(  ))
-  }
+  // trường hợp đăng nhập
 
-  console.log(storeUsers.login('nguyenvanA', '123456'));
-  console.log(storeUsers.login('nguyenvanA', '1234'));
+  const frmDangNhap = document.getElementById('frmDangNhap')
+  
+  frmDangNhap && frmDangNhap,addEventListener('submit', function(event){
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value
+    if(username === '' || password === ''){
+      alert('nhập đầy đủ thông tin')
+      return
+    }
+    const isCheck = store.login(username, password)
+    if(isCheck){
+      alert('đăng nhập thành công')
+      store.saveUser(isCheck)
+    } else {
+      alert('đăng nhập thất bại')
+    }
+    alert('login form')
+  })
