@@ -15,6 +15,9 @@ class User {
   setPassword(password) {
     this.password = password;
   }
+  getRole() {
+    return this.role
+  }
   xuatThongTin() {
     console.log(`Name: ${this.name}`);
     console.log(`Username: ${this.username}`);
@@ -139,8 +142,22 @@ class User {
     if(isCheck){
       alert('đăng nhập thành công')
       store.saveUser(isCheck)
+      if(isCheck.getRole() === 'admin'){
+        window.location.href = './admin.html'
+      }
     } else {
       alert('đăng nhập thất bại')
     }
     alert('login form')
   })
+  // xử lý profile ở đây đợi page đã load xong trang web
+window.addEventListener('load', function() {
+    const currentUser = store.parseUser();
+    console.log('name',currentUser)
+      document.getElementById('username').innerHTML = `username: ${currentUser.getUsername()}`;
+      document.getElementById('name').innerHTML = `name: ${currentUser.name}`;
+      document.getElementById('email').innerHTML = `name: ${currentUser.email}`;
+      document.getElementById('role').innerHTML = `name: ${currentUser.getRole()}`;
+      document.getElementById('password').innerHTML = `password: *******`;
+    console.log('currentUser',currentUser)
+})
