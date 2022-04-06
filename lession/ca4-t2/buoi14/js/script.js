@@ -9,6 +9,9 @@ class User {
   getUserName() {
     return this.username
   }
+  getRole() {
+    return this.role
+  }
   getPassword() {
     return this.password
   }
@@ -41,7 +44,7 @@ class StoreUser {
     for(let i=0;i<this.users.length;i++){
       if(this.users[i].getUserName() === username &&
        this.users[i].getPassword() === password){
-        return true
+        return this.users[i]
       }
     }
     return false
@@ -124,6 +127,16 @@ console.log('store', store)
       alert('nhập đầy đủ thông tin')
     } else {
       const isLogin = store.login(username, password)
+      if(isLogin) {
+        // admin || user
+        alert('đăng nhập thành công')
+        console.log(isLogin)
+        if(isLogin.getRole() === 'admin') {
+          window.location = "./admin.html"
+        }else {
+          window.location = "./user.html"
+        }
+      }
       console.log('login', isLogin)
     }
   })
