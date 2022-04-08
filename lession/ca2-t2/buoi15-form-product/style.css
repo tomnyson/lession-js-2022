@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-.active-slider {
-  display: block !important;
-}
 /* Slideshow container */
 .slideshow-container {
   max-width: 750;
@@ -13,8 +10,11 @@
 }
 
 /* Hide the images by default */
-.mySlides {
+.item {
   display: none;
+}
+.active-slider {
+  display: block;
 }
 
 /* Next & previous buttons */

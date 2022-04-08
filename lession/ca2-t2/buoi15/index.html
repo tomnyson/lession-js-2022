@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>slider</title>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="item fade">
+          <img src="https://dbk.vn/uploads/ckfinder/images/1-content/anh-dep-2.jpg" style="width: 100%" />
+          <div class="text">Caption Text</div>
+        </div>
+
+        <div class="item fade">
+          <img
+            src="https://dbk.vn/uploads/ckfinder/images/1-content/anh-dep-3.jpg"
+            style="width: 100%"
+          />
+          <div class="text">Caption Two</div>
+        </div>
+        <div class="item fade">
+            <img
+            src="https://dbk.vn/uploads/ckfinder/images/1-content/anh-dep-6.jpg"
+            style="width: 100%"
+          />
+          <div class="text">Caption Three</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a id="preSlider" class="prev">&#10094;</a>
+        <a id="nextSlider" class="next">&#10095;</a>
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+  </body>
+  <script src="./slider.js"></script>
+</html>
