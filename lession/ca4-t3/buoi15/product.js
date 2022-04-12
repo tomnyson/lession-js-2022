@@ -1,91 +1,4 @@
-class Product {
-  constructor(id, name, price, description, image) {
-    this.id=  id;
-    this.name = name;
-    this.price = price;
-    this.description = description;
-    this.image = image;
-  }
-}
- class StoreProduct {
-   constructor() {
-      this.products = [];
-   }
-    add(product) {
-      for(let i = 0; i < this.products.length; i++) {
-        const currentProduct = this.products[i];
-        if(currentProduct.id === product.id) {
-          return false
-        }
-      }
-      this.products.push(product)
-      return true
-    }
-    update(product) {
-      let vt = -1;
-      for(let i = 0; i < this.products.length; i++) {
-        const currentProduct = this.products[i];
-        if(currentProduct.id === product.id) {
-          vt = i;
-        }
-      }
-      //c1 
-      if(vt !== -1) {
-        // this.products[vt] = product;
-        // remove product
-        this.products.splice(vt, 1, product)
-        // this.products.push(product)
-        return true
-      }
-      return false
-    }
-    getById(id) {
-      for(let i = 0; i < this.products.length; i++) {
-        const currentProduct = this.products[i];
-        if(currentProduct.id == id) {
-          return currentProduct
-        }
-      }
-      //c1 
-      return null
-    }
-    remove(id) {
-      console.log(this.products)
-      for(let i = 0; i < this.products.length; i++) {
-        const currentProduct = this.products[i];
-        if(currentProduct.id == id) {
-          this.products.splice(i, 1)
-          return true
-        }
-      }
-      return false
-    }
-    save() {
-        if(this.products.length > 0) {
-          const data = JSON.stringify(this.products)
-          localStorage.setItem('products', data)
-        }
-    }
-    getData() {
-      const data = JSON.parse(localStorage.getItem('products'))
-      if(data) {
-        const listProduct = []
-        for(let i =0; i < data.length; i++) {
-          const user = new Product(data[i].id, data[i].name, data[i].price, data[i].description, data[i].image)
-          listProduct.push(user)
-        }
-        this.products = listProduct
-      }
-    }
 
-    getProduct() {
-      return this.products
-    }
- }
-  
- store = new StoreProduct();
- 
- store.getData()
 
  // them san pham
 
@@ -99,20 +12,25 @@ class Product {
                 <td>${item.name}</td>
                 <td>${item.description}</td>
                 <td>${item.price}</td>
-                <td>${item.image}</td>
+                <td><img src="${item.image}" width="300px"/></td>
                 <td>
                   <button type="button" class="btn btn-primary"
                   onClick="onEdit(${item.id})"
                    >edit</button>
                   <button type="button" class="btn btn-danger" onClick="onRemove(${item.id})">remove</button>
+                  <a href="./product-detail.html?id=${item.id}"/>view detail</a>
                 </td>
               </tr>
       `
    }
-   document.getElementById('tableBody').innerHTML = content
+    if(document.getElementById('tableBody')) {
+      document.getElementById('tableBody').innerHTML = content
+    }
+   
  }
  renderTable(store.getProduct())
- document.getElementById('frmProductCreate').addEventListener('submit', function(event){
+ document.getElementById('frmProductCreate') &&
+  document.getElementById('frmProductCreate').addEventListener('submit', function(event){
    event.preventDefault();
    const id = document.getElementById('id').value;
    const name = document.getElementById('name').value;
@@ -120,10 +38,13 @@ class Product {
    const image = document.getElementById('image').value;
    const price = document.getElementById('price').value;
 
-   if(name === '' || description === '' || price === '' || image === '' || id === '') {
-     alert('điền đầy đủ thông tin')
-     return
-   }
+   const error = validate({id, name, description, image, price})
+
+  if(error.length>0) {
+    document.getElementById('error').innerHTML = error.join('<br>')
+    return
+  }
+
    const product = new Product(id, name, price, description, image);
    const isCreate = store.add(product);
    if(isCreate) {
@@ -136,7 +57,8 @@ class Product {
 
  })
 
- document.getElementById('frmProductEdit').addEventListener('submit', function(event){
+ document.getElementById('frmProductEdit')&&
+   document.getElementById('frmProductEdit').addEventListener('submit', function(event){
   event.preventDefault();
   const id = document.getElementById('prodId').value;
   const name = document.getElementById('prodName').value;
@@ -190,3 +112,46 @@ class Product {
   }
   myModal.show();
  }
+
+ function isValidURL(string) {
+  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  return (res !== null)
+};
+
+ function validate({id, name, description, image, price}) {
+   let error = [];
+  if(id === '' || isNaN(id)) {
+    error.push('id is invalid')
+  }
+  if(name === '') {
+    error.push('name is not empty')
+  }
+  if(price === '' || isNaN(price)) {
+    error.push('price is invalid')
+  }
+  if(description === '') {
+    error.push('description is invalid')
+  }
+
+  if(image === '' || !isValidURL(image)) {
+    const extent = image.split('.').pop();  
+    const allowImage = ['.jpg', '.jpeg', '.png'];
+    if(!allowImage.includes(extent)) {
+      error.push('image is not image link')
+    }
+
+  }
+  return error;
+ }
+
+ document.getElementById('btn-sort-gia-tang').addEventListener('click', function() {
+  store.orderProductIncrease();
+  store.save();
+  console.log(store.getProduct())
+  renderTable(store.getProduct());
+ })
+ document.getElementById('btn-sort-gia-giam').addEventListener('click', function() {
+  store.orderProductDecrese();
+  store.save();
+  renderTable(store.getProduct());
+ })

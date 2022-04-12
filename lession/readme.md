@@ -232,3 +232,60 @@ var arr = [243, 45, 23, 356, 3, 5346, 35, 5];
 // calling the bubbleSort Function
 bubbleSort(arr)
 ```
+
+### hôm nay tui hướng dẫn các bạn cách làm chức năng nang hiển thị detail cho sản phẩm nhé
+có nhiều cách
+nhưng tui sẽ xài cách dùng id để lấy detail
+chúng ta sẽ pass id trên url
+chúng ta thử validation hình ảnh nhé
+
+```
+function isValidURL(string) {
+  var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  return (res !== null)
+};
+
+ function validate({id, name, description, image, price}) {
+   let error = [];
+  if(id === '' || isNaN(id)) {
+    error.push('id is invalid')
+  }
+  if(name === '') {
+    error.push('name is not empty')
+  }
+  if(price === '' || isNaN(price)) {
+    error.push('price is invalid')
+  }
+  if(description === '') {
+    error.push('description is invalid')
+  }
+
+  if(image === '' || !isValidURL(image)) {
+    const extent = image.split('.').pop();  
+    const allowImage = ['.jpg', '.jpeg', '.png'];
+    if(!allowImage.includes(extent)) {
+      error.push('image is not image link')
+    }
+
+  }
+  return error;
+ }
+ ``
+
+cách lấy detail
+
+```
+window.addEventListener('load', function(event) {
+  // event
+  // get id from url dùng để lấy id trừ url
+  const params = new URLSearchParams(window.location.search)
+  const id = params.get('id')
+  const product  = store.getById(id);
+  if(product) {
+    document.getElementById('image').src = product.image
+    document.getElementById('price').textContent = product.price
+    document.getElementById('name').textContent = product.name
+    document.getElementById('description').textContent = product.description
+  }
+})
+```
