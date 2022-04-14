@@ -25,8 +25,8 @@ class Product {
       for(let i = 0; i < this.products.length; i++) {
         const currentProduct = this.products[i];
         if(currentProduct.id === product.id) {
-           this.products[i] = product
-           return true;
+          this.products[i] = product
+          return true
         }
       }
       return false
@@ -34,7 +34,7 @@ class Product {
     getById(id) {
       for(let i = 0; i < this.products.length; i++) {
         const currentProduct = this.products[i];
-        if(currentProduct.id == id) {
+        if(currentProduct.id === id) {
           return currentProduct
         }
       }
@@ -42,10 +42,9 @@ class Product {
       return null
     }
     remove(id) {
-      console.log(this.products)
       for(let i = 0; i < this.products.length; i++) {
         const currentProduct = this.products[i];
-        if(currentProduct.id == id) {
+        if(currentProduct.id === id) {
           this.products.splice(i, 1)
           return true
         }
@@ -63,28 +62,25 @@ class Product {
       if(data) {
         const listProduct = []
         for(let i =0; i < data.length; i++) {
-          const user = new Product(data[i].id, data[i].name, data[i].price, data[i].description, data[i].image)
-          listProduct.push(user)
+          const product = new Product(data[i].id, data[i].name, data[i].price, data[i].description, data[i].image)
+          listProduct.push(product)
         }
         this.products = listProduct
       }
     }
-
     getProduct() {
       return this.products
     }
-    sapXepTheoGia(type = true) {
-      // true tang dan
-      // false giam dan
+    sapXepGia(type = true){
+      // true tang dần
+      // false giảm dần
       if(type) {
-        this.products.sort((a, b) => a.price - b.price)
-      }else {
-        this.products.sort((a, b) => b.price - a.price)
+        this.products.sort((a,b) => {return a.price -b.price})
+      } else {
+        this.products.sort((a,b) => {return b.price -a.price})
       }
-      
+
     }
  }
-  
  store = new StoreProduct();
- 
  store.getData()

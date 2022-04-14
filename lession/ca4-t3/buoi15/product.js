@@ -145,13 +145,12 @@
  }
 
  document.getElementById('btn-sort-gia-tang').addEventListener('click', function() {
-  store.orderProductIncrease();
+  store.sapXepTheoGia(true);
   store.save();
-  console.log(store.getProduct())
   renderTable(store.getProduct());
  })
  document.getElementById('btn-sort-gia-giam').addEventListener('click', function() {
-  store.orderProductDecrese();
+  store.sapXepTheoGia(false);
   store.save();
   renderTable(store.getProduct());
  })

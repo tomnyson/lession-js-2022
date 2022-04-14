@@ -1,13 +1,14 @@
 window.addEventListener('load', function(event) {
-  // event
-  // get id from url dùng để lấy id trừ url
-  const params = new URLSearchParams(window.location.search)
-  const id = params.get('id')
-  const product  = store.getById(id);
-  if(product) {
-    document.getElementById('image').src = product.image
-    document.getElementById('price').innerText = product.price
-    document.getElementById('name').innerText = product.name
-    document.getElementById('description').innerText = product.description
+  /**
+   * lay id ty query string 
+   */
+  const param = new URLSearchParams(window.location.search)
+  const id = param.get('id');
+  const product = store.getById(id);
+  if(product){
+    document.getElementById('name').textContent = product.name;
+    document.getElementById('price').textContent = product.price;
+    document.getElementById('description').textContent = product.description;
+    document.getElementById('image').src = product.image;
   }
 })
